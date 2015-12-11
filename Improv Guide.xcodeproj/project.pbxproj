@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD6C44721C1AE6AF00B2141C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44711C1AE6AF00B2141C /* AppDelegate.swift */; };
+		CD6C44741C1AE6AF00B2141C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44731C1AE6AF00B2141C /* ViewController.swift */; };
+		CD6C44771C1AE6B000B2141C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6C44751C1AE6B000B2141C /* Main.storyboard */; };
+		CD6C44791C1AE6B000B2141C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD6C44781C1AE6B000B2141C /* Assets.xcassets */; };
+		CD6C447C1C1AE6B000B2141C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6C447A1C1AE6B000B2141C /* LaunchScreen.storyboard */; };
+		CD6C44871C1AE6B000B2141C /* Improv_GuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44861C1AE6B000B2141C /* Improv_GuideTests.swift */; };
+		CD6C44921C1AE6B000B2141C /* Improv_GuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44911C1AE6B000B2141C /* Improv_GuideUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD6C44831C1AE6B000B2141C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD6C44661C1AE6AF00B2141C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD6C446D1C1AE6AF00B2141C;
+			remoteInfo = "Improv Guide";
+		};
+		CD6C448E1C1AE6B000B2141C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD6C44661C1AE6AF00B2141C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD6C446D1C1AE6AF00B2141C;
+			remoteInfo = "Improv Guide";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CD6C446E1C1AE6AF00B2141C /* Improv Guide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Improv Guide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD6C44711C1AE6AF00B2141C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CD6C44731C1AE6AF00B2141C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD6C44761C1AE6B000B2141C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD6C44781C1AE6B000B2141C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD6C447B1C1AE6B000B2141C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CD6C447D1C1AE6B000B2141C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD6C44821C1AE6B000B2141C /* Improv GuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Improv GuideTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD6C44861C1AE6B000B2141C /* Improv_GuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Improv_GuideTests.swift; sourceTree = "<group>"; };
+		CD6C44881C1AE6B000B2141C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD6C448D1C1AE6B000B2141C /* Improv GuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Improv GuideUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD6C44911C1AE6B000B2141C /* Improv_GuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Improv_GuideUITests.swift; sourceTree = "<group>"; };
+		CD6C44931C1AE6B000B2141C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD6C446B1C1AE6AF00B2141C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD6C447F1C1AE6B000B2141C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD6C448A1C1AE6B000B2141C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD6C44651C1AE6AF00B2141C = {
+			isa = PBXGroup;
+			children = (
+				CD6C44701C1AE6AF00B2141C /* Improv Guide */,
+				CD6C44851C1AE6B000B2141C /* Improv GuideTests */,
+				CD6C44901C1AE6B000B2141C /* Improv GuideUITests */,
+				CD6C446F1C1AE6AF00B2141C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD6C446F1C1AE6AF00B2141C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C446E1C1AE6AF00B2141C /* Improv Guide.app */,
+				CD6C44821C1AE6B000B2141C /* Improv GuideTests.xctest */,
+				CD6C448D1C1AE6B000B2141C /* Improv GuideUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD6C44701C1AE6AF00B2141C /* Improv Guide */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C44711C1AE6AF00B2141C /* AppDelegate.swift */,
+				CD6C44731C1AE6AF00B2141C /* ViewController.swift */,
+				CD6C44751C1AE6B000B2141C /* Main.storyboard */,
+				CD6C44781C1AE6B000B2141C /* Assets.xcassets */,
+				CD6C447A1C1AE6B000B2141C /* LaunchScreen.storyboard */,
+				CD6C447D1C1AE6B000B2141C /* Info.plist */,
+			);
+			path = "Improv Guide";
+			sourceTree = "<group>";
+		};
+		CD6C44851C1AE6B000B2141C /* Improv GuideTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C44861C1AE6B000B2141C /* Improv_GuideTests.swift */,
+				CD6C44881C1AE6B000B2141C /* Info.plist */,
+			);
+			path = "Improv GuideTests";
+			sourceTree = "<group>";
+		};
+		CD6C44901C1AE6B000B2141C /* Improv GuideUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C44911C1AE6B000B2141C /* Improv_GuideUITests.swift */,
+				CD6C44931C1AE6B000B2141C /* Info.plist */,
+			);
+			path = "Improv GuideUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD6C446D1C1AE6AF00B2141C /* Improv Guide */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD6C44961C1AE6B000B2141C /* Build configuration list for PBXNativeTarget "Improv Guide" */;
+			buildPhases = (
+				CD6C446A1C1AE6AF00B2141C /* Sources */,
+				CD6C446B1C1AE6AF00B2141C /* Frameworks */,
+				CD6C446C1C1AE6AF00B2141C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Improv Guide";
+			productName = "Improv Guide";
+			productReference = CD6C446E1C1AE6AF00B2141C /* Improv Guide.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD6C44811C1AE6B000B2141C /* Improv GuideTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD6C44991C1AE6B000B2141C /* Build configuration list for PBXNativeTarget "Improv GuideTests" */;
+			buildPhases = (
+				CD6C447E1C1AE6B000B2141C /* Sources */,
+				CD6C447F1C1AE6B000B2141C /* Frameworks */,
+				CD6C44801C1AE6B000B2141C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD6C44841C1AE6B000B2141C /* PBXTargetDependency */,
+			);
+			name = "Improv GuideTests";
+			productName = "Improv GuideTests";
+			productReference = CD6C44821C1AE6B000B2141C /* Improv GuideTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CD6C448C1C1AE6B000B2141C /* Improv GuideUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD6C449C1C1AE6B000B2141C /* Build configuration list for PBXNativeTarget "Improv GuideUITests" */;
+			buildPhases = (
+				CD6C44891C1AE6B000B2141C /* Sources */,
+				CD6C448A1C1AE6B000B2141C /* Frameworks */,
+				CD6C448B1C1AE6B000B2141C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD6C448F1C1AE6B000B2141C /* PBXTargetDependency */,
+			);
+			name = "Improv GuideUITests";
+			productName = "Improv GuideUITests";
+			productReference = CD6C448D1C1AE6B000B2141C /* Improv GuideUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD6C44661C1AE6AF00B2141C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Ignat Remizov";
+				TargetAttributes = {
+					CD6C446D1C1AE6AF00B2141C = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					CD6C44811C1AE6B000B2141C = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = CD6C446D1C1AE6AF00B2141C;
+					};
+					CD6C448C1C1AE6B000B2141C = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = CD6C446D1C1AE6AF00B2141C;
+					};
+				};
+			};
+			buildConfigurationList = CD6C44691C1AE6AF00B2141C /* Build configuration list for PBXProject "Improv Guide" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD6C44651C1AE6AF00B2141C;
+			productRefGroup = CD6C446F1C1AE6AF00B2141C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD6C446D1C1AE6AF00B2141C /* Improv Guide */,
+				CD6C44811C1AE6B000B2141C /* Improv GuideTests */,
+				CD6C448C1C1AE6B000B2141C /* Improv GuideUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD6C446C1C1AE6AF00B2141C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C447C1C1AE6B000B2141C /* LaunchScreen.storyboard in Resources */,
+				CD6C44791C1AE6B000B2141C /* Assets.xcassets in Resources */,
+				CD6C44771C1AE6B000B2141C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD6C44801C1AE6B000B2141C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD6C448B1C1AE6B000B2141C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD6C446A1C1AE6AF00B2141C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C44741C1AE6AF00B2141C /* ViewController.swift in Sources */,
+				CD6C44721C1AE6AF00B2141C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD6C447E1C1AE6B000B2141C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C44871C1AE6B000B2141C /* Improv_GuideTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD6C44891C1AE6B000B2141C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C44921C1AE6B000B2141C /* Improv_GuideUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD6C44841C1AE6B000B2141C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD6C446D1C1AE6AF00B2141C /* Improv Guide */;
+			targetProxy = CD6C44831C1AE6B000B2141C /* PBXContainerItemProxy */;
+		};
+		CD6C448F1C1AE6B000B2141C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD6C446D1C1AE6AF00B2141C /* Improv Guide */;
+			targetProxy = CD6C448E1C1AE6B000B2141C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD6C44751C1AE6B000B2141C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD6C44761C1AE6B000B2141C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CD6C447A1C1AE6B000B2141C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD6C447B1C1AE6B000B2141C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD6C44941C1AE6B000B2141C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD6C44951C1AE6B000B2141C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD6C44971C1AE6B000B2141C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Improv Guide/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.makeschool.students.Improv-Guide";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CD6C44981C1AE6B000B2141C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Improv Guide/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.makeschool.students.Improv-Guide";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CD6C449A1C1AE6B000B2141C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Improv GuideTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.makeschool.students.Improv-GuideTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Improv Guide.app/Improv Guide";
+			};
+			name = Debug;
+		};
+		CD6C449B1C1AE6B000B2141C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Improv GuideTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.makeschool.students.Improv-GuideTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Improv Guide.app/Improv Guide";
+			};
+			name = Release;
+		};
+		CD6C449D1C1AE6B000B2141C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Improv GuideUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.makeschool.students.Improv-GuideUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Improv Guide";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		CD6C449E1C1AE6B000B2141C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Improv GuideUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.makeschool.students.Improv-GuideUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Improv Guide";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD6C44691C1AE6AF00B2141C /* Build configuration list for PBXProject "Improv Guide" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD6C44941C1AE6B000B2141C /* Debug */,
+				CD6C44951C1AE6B000B2141C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD6C44961C1AE6B000B2141C /* Build configuration list for PBXNativeTarget "Improv Guide" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD6C44971C1AE6B000B2141C /* Debug */,
+				CD6C44981C1AE6B000B2141C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CD6C44991C1AE6B000B2141C /* Build configuration list for PBXNativeTarget "Improv GuideTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD6C449A1C1AE6B000B2141C /* Debug */,
+				CD6C449B1C1AE6B000B2141C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CD6C449C1C1AE6B000B2141C /* Build configuration list for PBXNativeTarget "Improv GuideUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD6C449D1C1AE6B000B2141C /* Debug */,
+				CD6C449E1C1AE6B000B2141C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD6C44661C1AE6AF00B2141C /* Project object */;
+}
