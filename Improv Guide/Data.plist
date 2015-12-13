@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Games</key>
+	<dict>
+		<key>Scene</key>
+		<array>
+			<dict>
+				<key>Randoms</key>
+				<array>
+					<array>
+						<integer>2</integer>
+						<string>Crime</string>
+						<string>Person</string>
+						<string>Place</string>
+					</array>
+				</array>
+				<key>Parts</key>
+				<array>
+					<string>Pick a criminal, they should leave temporarily</string>
+					<string>Pick a crime, an accomplice, and a place</string>
+					<string>Bring the criminal back in</string>
+					<string>Interrogate the criminal by giving clues, but not by explicity stating the things you picked</string>
+					<string>Game ends when the criminal knows the crime, the accomplice, and the place</string>
+				</array>
+				<key>Description</key>
+				<string>Excellent improv game to train listening skills.
+3 players, one leaves the room (they are the criminal). Pick a crime, an accomplice, and a place.
+The idea is that criminal needs to guess the crime, the accomplice, and the place. The cops need to provide hints to the criminal, but they cannot explicitly tell the criminal what the crime is, who the accomplice is, and where the crime took place.</string>
+				<key>Title</key>
+				<string>Good Cop, Bad Cop</string>
+			</dict>
+		</array>
+		<key>Exercise</key>
+		<array>
+			<dict>
+				<key>Randoms</key>
+				<array/>
+				<key>Parts</key>
+				<array>
+					<string>First Person says a line</string>
+					<string>Second person responds to the line</string>
+					<string>First person responds to the Second person&apos;s line</string>
+					<string>Restart</string>
+				</array>
+				<key>Description</key>
+				<string>A great exercise to train scene start-ups. 2 players initiate a scene; the scene is broken off after 3 lines. The goal is to establish as much as possible as fast as possible. We want to understand the who, what and where of a scene, the characters, the environment and the points of view or drivers of the characters.
+Once 3 lines of dialog have been uttered, restart a different scene.</string>
+				<key>Title</key>
+				<string>Three Lines</string>
+			</dict>
+		</array>
+		<key>WarmUp</key>
+		<array>
+			<dict>
+				<key>Randoms</key>
+				<array>
+					<array>
+						<integer>4</integer>
+						<string>Item</string>
+						<string>Location</string>
+					</array>
+					<array>
+						<integer>2</integer>
+						<string>Category</string>
+					</array>
+				</array>
+				<key>Parts</key>
+				<array>
+					<string>Stand in a circle, or at least in some order</string>
+					<string>Pick a category</string>
+					<string>State an example of the category, then point to someone else</string>
+					<string>Keep pointing. That someone else says another example and points to someone else</string>
+					<string>Continue the pattern until eveyone is pointing at one person</string>
+					<string>Repeat the pattern</string>
+					<string>Drop the arms when the pattern is memorized</string>
+					<string>Do the same with a new category, with a different pointing pattern</string>
+					<string>Repeat the new pattern until it is memorized</string>
+					<string>Now, without pointing, run both categories at the same time</string>
+					<string>Add more categories!</string>
+				</array>
+				<key>Description</key>
+				<string>Everyone in a circle. Pick a category (e.g. make of cars, girls names, kinds of food, kinds of plants, whatever) or use the given one. First person states an example of the category, and points to someone else. Keep pointing. That someone else does the same, with a different item in the category, and so forth, until everyone points at one person.
+Then repeat the pattern. Make eye contact when passing your item to the next person. Drop the pointing arms when everyone is comfortable and the series is collectively memorized.
+Then do the same with a second category, and make sure the pointing pattern is different. Repeat till everyone is comfortable.
+Then do the same exercise, without pointing, and running the 2 categories at the same time. Add a third, fourth category if you wish. No pointing arms any more!
+The idea is not only to listen for the item right before yours in the series (so you know when it`s your turn), but also to make sure that when you pass an item to someone else, that someone else actually hears you. If not, then repeat your item, to ensure the series does not get broken.</string>
+				<key>Title</key>
+				<string>Categories</string>
+			</dict>
+			<dict>
+				<key>Randoms</key>
+				<array/>
+				<key>Parts</key>
+				<array>
+					<string>Stand in a circle, or at least in some order</string>
+					<string>Say a category</string>
+					<string>Next person, say three things from the category</string>
+					<string>Now say a new category</string>
+				</array>
+				<key>Description</key>
+				<string>Everyone in a circle. First person says a category. Next person says three things from that category, then a new category. Next person does the same, and so on. This is a good warm up for expanding upon a scene.</string>
+				<key>Title</key>
+				<string>Three Things</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

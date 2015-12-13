@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		CD6C44721C1AE6AF00B2141C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44711C1AE6AF00B2141C /* AppDelegate.swift */; };
-		CD6C44741C1AE6AF00B2141C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44731C1AE6AF00B2141C /* ViewController.swift */; };
+		CD6C44741C1AE6AF00B2141C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44731C1AE6AF00B2141C /* MenuViewController.swift */; };
 		CD6C44771C1AE6B000B2141C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6C44751C1AE6B000B2141C /* Main.storyboard */; };
 		CD6C44791C1AE6B000B2141C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD6C44781C1AE6B000B2141C /* Assets.xcassets */; };
 		CD6C447C1C1AE6B000B2141C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6C447A1C1AE6B000B2141C /* LaunchScreen.storyboard */; };
 		CD6C44871C1AE6B000B2141C /* Improv_GuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44861C1AE6B000B2141C /* Improv_GuideTests.swift */; };
 		CD6C44921C1AE6B000B2141C /* Improv_GuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44911C1AE6B000B2141C /* Improv_GuideUITests.swift */; };
+		CD7B4C901C1AF01500CE36DC /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD7B4C8F1C1AF01500CE36DC /* Data.plist */; };
+		CDE249251C1CFD8100F7B098 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE249241C1CFD8100F7B098 /* InstructionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		CD6C446E1C1AE6AF00B2141C /* Improv Guide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Improv Guide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6C44711C1AE6AF00B2141C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD6C44731C1AE6AF00B2141C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD6C44731C1AE6AF00B2141C /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CD6C44761C1AE6B000B2141C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD6C44781C1AE6B000B2141C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD6C447B1C1AE6B000B2141C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		CD6C448D1C1AE6B000B2141C /* Improv GuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Improv GuideUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6C44911C1AE6B000B2141C /* Improv_GuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Improv_GuideUITests.swift; sourceTree = "<group>"; };
 		CD6C44931C1AE6B000B2141C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD7B4C8F1C1AF01500CE36DC /* Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
+		CDE249241C1CFD8100F7B098 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				CD6C44711C1AE6AF00B2141C /* AppDelegate.swift */,
-				CD6C44731C1AE6AF00B2141C /* ViewController.swift */,
+				CD6C44731C1AE6AF00B2141C /* MenuViewController.swift */,
+				CDE249241C1CFD8100F7B098 /* InstructionsViewController.swift */,
 				CD6C44751C1AE6B000B2141C /* Main.storyboard */,
 				CD6C44781C1AE6B000B2141C /* Assets.xcassets */,
 				CD6C447A1C1AE6B000B2141C /* LaunchScreen.storyboard */,
 				CD6C447D1C1AE6B000B2141C /* Info.plist */,
+				CD7B4C8F1C1AF01500CE36DC /* Data.plist */,
 			);
 			path = "Improv Guide";
 			sourceTree = "<group>";
@@ -231,6 +237,7 @@
 			files = (
 				CD6C447C1C1AE6B000B2141C /* LaunchScreen.storyboard in Resources */,
 				CD6C44791C1AE6B000B2141C /* Assets.xcassets in Resources */,
+				CD7B4C901C1AF01500CE36DC /* Data.plist in Resources */,
 				CD6C44771C1AE6B000B2141C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,7 +263,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD6C44741C1AE6AF00B2141C /* ViewController.swift in Sources */,
+				CDE249251C1CFD8100F7B098 /* InstructionsViewController.swift in Sources */,
+				CD6C44741C1AE6AF00B2141C /* MenuViewController.swift in Sources */,
 				CD6C44721C1AE6AF00B2141C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +492,7 @@
 				CD6C44981C1AE6B000B2141C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD6C44991C1AE6B000B2141C /* Build configuration list for PBXNativeTarget "Improv GuideTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +501,7 @@
 				CD6C449B1C1AE6B000B2141C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD6C449C1C1AE6B000B2141C /* Build configuration list for PBXNativeTarget "Improv GuideUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +510,7 @@
 				CD6C449E1C1AE6B000B2141C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
