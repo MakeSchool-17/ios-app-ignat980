@@ -40,6 +40,15 @@ class MenuViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "presentGame" {
+            let instructionsVC = segue.destinationViewController as? InstructionsViewController
+            instructionsVC?.gameData = sender as? NSDictionary
+            print("segue-ying")
+        }
+    }
 
 
 }
@@ -102,6 +111,16 @@ extension MenuViewController: UITableViewDataSource {
 extension MenuViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //TODO:Present Game Instructions
+        switch indexPath.section {
+        case 0:
+            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.WarmUp[\(indexPath.row)]"))
+        case 1:
+            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.Exercise[\(indexPath.row)]"))
+        case 2:
+            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.Scene[\(indexPath.row)]"))
+        default:
+            break
+        }
     }
 }
 
@@ -109,9 +128,9 @@ extension NSObject {
     /// Returns the value for the derived property identified by a given key path, with indexes.
     ///
     /// :params: keyPath A key path of the form relationship.property (with one or more relationships); for example “department.name” or “department.manager.lastName”.
-    func valueForKeyPathWithIndexes(path:String) -> AnyObject {
-        if path.containsString("[") {
-            let parts = path.componentsSeparatedByString(".")
+    func valueForKeyPathWithIndexes(keyPath:String) -> AnyObject {
+        if keyPath.containsString("[") {
+            let parts = keyPath.componentsSeparatedByString(".")
             var currentObj = self
             for part in parts {
                 if let range1 = part.rangeOfString("[") {
@@ -127,7 +146,7 @@ extension NSObject {
             }
             return currentObj
         } else {
-            return self.valueForKeyPath(path)!
+            return self.valueForKeyPath(keyPath)!
         }
     }
 }

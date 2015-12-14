@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Menu View Controller-->
@@ -36,11 +37,98 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="BQp-xy-YkU" id="n9B-nK-Ms2"/>
+                        <segue destination="Btd-ua-b56" kind="showDetail" identifier="presentGame" id="7AE-v1-L9a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="377"/>
+            <point key="canvasLocation" x="345" y="377"/>
+        </scene>
+        <!--Instructions View Controller-->
+        <scene sceneID="DV7-bU-eGc">
+            <objects>
+                <viewController id="Btd-ua-b56" customClass="InstructionsViewController" customModule="Improv_Guide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PGK-xh-lIM"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Gx-Sa-4OU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tox-Os-w9T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoJ-LF-K87">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="8Ob-j5-HKq">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="NO2-NK-17Y">
+                                            <connections>
+                                                <action selector="closeButtonPressed:" destination="Btd-ua-b56" id="u7O-Fn-iwu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUX-YI-BPO" userLabel="Separator">
+                                <rect key="frame" x="0.0" y="64" width="580" height="3"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34000000000000002" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" adjustable="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="4ms-tm-Y9L"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-Cb-QDh" userLabel="Description">
+                                <rect key="frame" x="16" y="67" width="548" height="533"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="533" id="S88-n3-oz5"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S88-n3-oz5"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WoJ-LF-K87" secondAttribute="trailing" id="217-on-x5y"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="bottom" secondItem="0Gx-Sa-4OU" secondAttribute="top" id="6eG-EV-Xvu"/>
+                            <constraint firstItem="WoJ-LF-K87" firstAttribute="leading" secondItem="aUX-YI-BPO" secondAttribute="leading" id="Bay-1X-6kx"/>
+                            <constraint firstItem="WoJ-LF-K87" firstAttribute="top" secondItem="PGK-xh-lIM" secondAttribute="bottom" id="BhY-XW-rG0"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="leading" secondItem="Tox-Os-w9T" secondAttribute="leadingMargin" constant="-4" id="FM4-YO-w3n"/>
+                            <constraint firstItem="aUX-YI-BPO" firstAttribute="centerX" secondItem="aFa-Cb-QDh" secondAttribute="centerX" id="FUr-iM-RYz"/>
+                            <constraint firstItem="aUX-YI-BPO" firstAttribute="top" secondItem="WoJ-LF-K87" secondAttribute="bottom" id="HYO-cV-C5a"/>
+                            <constraint firstItem="aUX-YI-BPO" firstAttribute="trailing" secondItem="WoJ-LF-K87" secondAttribute="trailing" id="Izm-ml-Cyc"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="top" secondItem="aUX-YI-BPO" secondAttribute="bottom" id="Mwd-tt-4q0"/>
+                            <constraint firstItem="aUX-YI-BPO" firstAttribute="leading" secondItem="Tox-Os-w9T" secondAttribute="leading" id="O7p-zy-E4t"/>
+                            <constraint firstItem="aUX-YI-BPO" firstAttribute="trailing" secondItem="Tox-Os-w9T" secondAttribute="trailingMargin" id="Odf-0S-kgf"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="top" secondItem="aUX-YI-BPO" secondAttribute="bottom" id="SPC-um-GNx"/>
+                            <constraint firstItem="0Gx-Sa-4OU" firstAttribute="top" secondItem="aUX-YI-BPO" secondAttribute="bottom" constant="548" id="nzk-vu-52B"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="top" secondItem="aUX-YI-BPO" secondAttribute="bottom" id="ydU-k7-ym3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Izm-ml-Cyc"/>
+                                <exclude reference="Mwd-tt-4q0"/>
+                                <exclude reference="ydU-k7-ym3"/>
+                                <exclude reference="nzk-vu-52B"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="k0r-tW-IdS"/>
+                    <connections>
+                        <outlet property="descriptionView" destination="aFa-Cb-QDh" id="48M-u4-czy"/>
+                        <outlet property="titleView" destination="WoJ-LF-K87" id="Dms-Yw-aDz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ul-v4-FxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1011" y="377"/>
         </scene>
     </scenes>
 </document>
