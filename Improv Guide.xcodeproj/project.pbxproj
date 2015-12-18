@@ -17,6 +17,7 @@
 		CD7B4C901C1AF01500CE36DC /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD7B4C8F1C1AF01500CE36DC /* Data.plist */; };
 		CDE249251C1CFD8100F7B098 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE249241C1CFD8100F7B098 /* InstructionsViewController.swift */; };
 		CDE249271C1F4F2900F7B098 /* PagedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE249261C1F4F2900F7B098 /* PagedGameViewController.swift */; };
+		CDE249291C1F62F500F7B098 /* GamePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE249281C1F62F500F7B098 /* GamePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		CD7B4C8F1C1AF01500CE36DC /* Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
 		CDE249241C1CFD8100F7B098 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		CDE249261C1F4F2900F7B098 /* PagedGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedGameViewController.swift; sourceTree = "<group>"; };
+		CDE249281C1F62F500F7B098 /* GamePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				CD6C44731C1AE6AF00B2141C /* MenuViewController.swift */,
 				CDE249241C1CFD8100F7B098 /* InstructionsViewController.swift */,
 				CD6C44751C1AE6B000B2141C /* Main.storyboard */,
+				CDE249281C1F62F500F7B098 /* GamePageViewController.swift */,
 				CDE249261C1F4F2900F7B098 /* PagedGameViewController.swift */,
 				CD6C44781C1AE6B000B2141C /* Assets.xcassets */,
 				CD6C447A1C1AE6B000B2141C /* LaunchScreen.storyboard */,
@@ -270,6 +273,7 @@
 				CD6C44741C1AE6AF00B2141C /* MenuViewController.swift in Sources */,
 				CDE249271C1F4F2900F7B098 /* PagedGameViewController.swift in Sources */,
 				CD6C44721C1AE6AF00B2141C /* AppDelegate.swift in Sources */,
+				CDE249291C1F62F500F7B098 /* GamePageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

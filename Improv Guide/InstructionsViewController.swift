@@ -29,6 +29,14 @@ class InstructionsViewController: UIViewController {
     @IBAction func closeButtonPressed(sender:AnyObject) {
         self.dismissViewControllerAnimated(true, completion:nil)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "startGame" {
+            if let game = segue.destinationViewController as? PagedGameViewController {
+                game.gameData = gameData
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
