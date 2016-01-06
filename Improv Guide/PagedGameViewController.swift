@@ -17,8 +17,8 @@ class PagedGameViewController: UIPageViewController {
         self.dataSource = self
         if let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as? GamePageViewController {
             self.setViewControllers([game], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-            game.instructions.text = ""
             game.instructions.text = (gameData?.valueForKeyPathWithIndexes("Parts[0]") as? String ?? "")
+            game.instructions.setNeedsLayout()
             game.step = 0
             
         }
@@ -60,6 +60,22 @@ extension PagedGameViewController:UIPageViewControllerDataSource {
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let gameVC = viewController as! GamePageViewController
         if gameVC.step + 1 >= self.gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0 {
+            if gameData?.valueForKey("Title") as? String == "Three Lines" {
+                let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as! GamePageViewController
+                let _ = game.view
+                game.step = 0
+                game.instructions.text = gameData?.valueForKeyPathWithIndexes("Parts[\(game.step)]") as? String ?? ""
+                
+                return game
+            }
+            if gameData?.valueForKey("Title") as? String == "Three Things" {
+                let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as! GamePageViewController
+                let _ = game.view
+                game.step = 1
+                game.instructions.text = gameData?.valueForKeyPathWithIndexes("Parts[\(game.step)]") as? String ?? ""
+                
+                return game
+            }
             return nil
         }
         let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as! GamePageViewController

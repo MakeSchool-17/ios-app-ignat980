@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Darwin
 
 class MenuViewController: UIViewController {
     ///The table view for the list of improv games
@@ -19,13 +20,13 @@ class MenuViewController: UIViewController {
         //Used by NSPropertyListSerialization
         let format = UnsafeMutablePointer<NSPropertyListFormat>()
         //The root directory of the app
-        let rootPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
+//        let rootPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
         //Get the path to the plist file that contains improv game data
-        var plistPath = rootPath + "/Data.plist"
-        if (!NSFileManager.defaultManager().fileExistsAtPath(plistPath)) {
-            print("plist not in the Documents Directory")
-            plistPath = NSBundle.mainBundle().pathForResource("Data", ofType: "plist")!
-        }
+//        var plistPath = rootPath + "/Data.plist"
+//        if (!NSFileManager.defaultManager().fileExistsAtPath(plistPath)) {
+//            print("plist not in \(plistPath)")
+        let plistPath = NSBundle.mainBundle().pathForResource("Data", ofType: "plist")!
+//        }
         //Convert from the data on disk into memory
         let plistXML = NSFileManager.defaultManager().contentsAtPath(plistPath)
         do {
@@ -46,7 +47,6 @@ class MenuViewController: UIViewController {
         if segue.identifier == "presentGame" {
             let instructionsVC = segue.destinationViewController as? InstructionsViewController
             instructionsVC?.gameData = sender as? NSDictionary
-            print("segue-ying")
         }
     }
 
@@ -75,11 +75,11 @@ extension MenuViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return (self.improvData.valueForKeyPath("Games.WarmUp") as! NSArray).count
+            return self.improvData.valueForKeyPath("Games.WarmUp.@count") as! Int
         case 1:
-            return (self.improvData.valueForKeyPath("Games.Exercise") as! NSArray).count
+            return self.improvData.valueForKeyPath("Games.Exercise.@count") as! Int
         case 2:
-            return (self.improvData.valueForKeyPath("Games.Scene") as! NSArray).count
+            return self.improvData.valueForKeyPath("Games.Scene.@count") as! Int
         default:
             return 0
         }
@@ -91,7 +91,9 @@ extension MenuViewController: UITableViewDataSource {
         if cell == nil {
             cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "item")
         }
-        //cell's text label = data[Games][Type][row][Title]
+        cell?.textLabel?.font = cell?.textLabel?.font.fontWithSize(18)
+        
+        //cell's text label = data.Games.<Type>[<row>][Title]
         switch indexPath.section {
         case 0:
             cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.WarmUp[\(indexPath.row)].Title") as! String)
@@ -104,6 +106,10 @@ extension MenuViewController: UITableViewDataSource {
         }
 
         return cell!
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
     }
 }
 
