@@ -96,11 +96,11 @@ extension MenuViewController: UITableViewDataSource {
         //cell's text label = data.Games.<Type>[<row>][Title]
         switch indexPath.section {
         case 0:
-            cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.WarmUp[\(indexPath.row)].Title") as! String)
+            cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.WarmUp.[\(indexPath.row)].Title") as! String)
         case 1:
-            cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.Exercise[\(indexPath.row)].Title") as! String)
+            cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.Exercise.[\(indexPath.row)].Title") as! String)
         case 2:
-            cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.Scene[\(indexPath.row)].Title") as! String)
+            cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.Scene.[\(indexPath.row)].Title") as! String)
         default:
             cell?.textLabel?.text = "Title not Found"
         }
@@ -117,13 +117,14 @@ extension MenuViewController: UITableViewDataSource {
 extension MenuViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //TODO:Present Game Instructions
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch indexPath.section {
         case 0:
-            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.WarmUp[\(indexPath.row)]"))
+            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.WarmUp.[\(indexPath.row)]"))
         case 1:
-            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.Exercise[\(indexPath.row)]"))
+            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.Exercise.[\(indexPath.row)]"))
         case 2:
-            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.Scene[\(indexPath.row)]"))
+            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.Scene.[\(indexPath.row)]"))
         default:
             break
         }
@@ -134,25 +135,30 @@ extension NSObject {
     /// Returns the value for the derived property identified by a given key path, with indexes.
     ///
     /// :params: keyPath A key path of the form relationship.property (with one or more relationships); for example “department.name” or “department.manager.lastName”.
-    func valueForKeyPathWithIndexes(keyPath:String) -> AnyObject {
+    func valueForKeyPathWithIndexes(keyPath:String) -> NSObject {
         if keyPath.containsString("[") {
             let parts = keyPath.componentsSeparatedByString(".")
             var currentObj = self
-            for part in parts {
-                if let range1 = part.rangeOfString("[") {
-                    let arrayKey = part.substringToIndex(range1.startIndex)
-                    if let index = Int(part.substringToIndex(part.endIndex.predecessor()).substringFromIndex(range1.startIndex.successor())){
-                        currentObj = (currentObj.valueForKey(arrayKey) as! NSArray).objectAtIndex(index) as! NSObject
+            for (var i = 0;i < parts.count; i++) {
+                if parts[i].containsString("[") {
+                    if let index = Int(parts[i].substringToIndex(parts[i].endIndex.predecessor()).substringFromIndex(parts[i].startIndex.successor())){
+                        currentObj = (currentObj as! NSArray).objectAtIndex(index) as! NSObject
                     } else {
                         print("The value between the [] in the key path is not an integer")
                     }
                 } else {
-                    currentObj = currentObj.valueForKey(part) as! NSObject
+                    currentObj = currentObj.valueForKey(parts[i]) as! NSObject
                 }
             }
             return currentObj
         } else {
-            return self.valueForKeyPath(keyPath)!
+            return self.valueForKeyPath(keyPath) as! NSObject
         }
+    }
+}
+
+extension NSArray {
+    func randomElement() -> AnyObject {
+        return self.objectAtIndex(Int(arc4random_uniform(UInt32(self.count))))
     }
 }

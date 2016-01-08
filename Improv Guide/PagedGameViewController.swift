@@ -11,25 +11,51 @@ import UIKit
 class PagedGameViewController: UIPageViewController {
     
     var gameData: NSDictionary?
+    var randomData: NSDictionary!
+    var randoms: Array<Array<NSObject>>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
-        if let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as? GamePageViewController {
-            self.setViewControllers([game], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-            game.instructions.text = (gameData?.valueForKeyPathWithIndexes("Parts[0]") as? String ?? "")
-            game.instructions.setNeedsLayout()
-            game.step = 0
-            
+        randoms = gameData?.valueForKey("Randoms") as? Array<Array<NSObject>>
+        let format = UnsafeMutablePointer<NSPropertyListFormat>()
+        let plistPath = NSBundle.mainBundle().pathForResource("Random", ofType: "plist")!
+        let plistXML = NSFileManager.defaultManager().contentsAtPath(plistPath)
+        do {
+            randomData = try NSPropertyListSerialization.propertyListWithData(plistXML!, options: NSPropertyListReadOptions.MutableContainersAndLeaves, format: format) as! NSDictionary
+        } catch let error {
+            print("Error reading plist: \(error), format: \(format)");
         }
+        let game = makeGamePage(withStep: 0)
+        self.setViewControllers([game], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+        game.instructions.setNeedsLayout()
+        
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func makeGamePage(withStep step:Int) -> GamePageViewController {
+        let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as! GamePageViewController
+        let _ = game.view
+        game.step = step
+        game.gameData = gameData?.valueForKeyPathWithIndexes("Parts.[\(game.step)]") as? String ?? ""
+        game.randomData = randomData
+        if randoms?.count != 0 {
+            for (var i = 0; i < randoms?.count; i++) {
+                if randoms![i][0] as? Int == step {
+                    var buffer:Array<String> = []
+                    for (var j = 1; j < randoms![i].count; j++){
+                        buffer += [(randoms![i][j] as! String)]
+                    }
+                    game.random = buffer
+                }
+            }
+        }
+        return game
+    }
     
     /*
     // MARK: - Navigation
@@ -50,41 +76,25 @@ extension PagedGameViewController:UIPageViewControllerDataSource {
         if gameVC.step == 0 {
             return nil
         }
-        let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as! GamePageViewController
-        let _ = game.view
-        game.step = gameVC.step - 1
-        game.instructions.text = gameData?.valueForKeyPathWithIndexes("Parts[\(gameVC.step - 1)]") as? String ?? ""
-        return game
+        return makeGamePage(withStep: gameVC.step - 1)
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let gameVC = viewController as! GamePageViewController
+        
         if gameVC.step + 1 >= self.gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0 {
+            
             if gameData?.valueForKey("Title") as? String == "Three Lines" {
-                let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as! GamePageViewController
-                let _ = game.view
-                game.step = 0
-                game.instructions.text = gameData?.valueForKeyPathWithIndexes("Parts[\(game.step)]") as? String ?? ""
-                
-                return game
-            }
-            if gameData?.valueForKey("Title") as? String == "Three Things" {
-                let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as! GamePageViewController
-                let _ = game.view
-                game.step = 1
-                game.instructions.text = gameData?.valueForKeyPathWithIndexes("Parts[\(game.step)]") as? String ?? ""
-                
-                return game
+                return makeGamePage(withStep: 0)
+            } else if gameData?.valueForKey("Title") as? String == "Three Things" {
+                return makeGamePage(withStep: 1)
             }
             return nil
         }
-        let game = self.storyboard?.instantiateViewControllerWithIdentifier("gamePageController") as! GamePageViewController
-        let _ = game.view
-        game.step = gameVC.step + 1
-        game.instructions.text = gameData?.valueForKeyPathWithIndexes("Parts[\(game.step)]") as? String ?? ""
         
-        return game
+        return makeGamePage(withStep: gameVC.step + 1)
     }
+    
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return self.gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0

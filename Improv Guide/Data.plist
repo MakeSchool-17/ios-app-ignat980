@@ -69,9 +69,12 @@ Once 3 lines of dialog have been said, restart and do a different scene.</string
 				<key>Randoms</key>
 				<array>
 					<array>
+						<integer>0</integer>
+						<string>Category</string>
+					</array>
+					<array>
 						<integer>4</integer>
-						<string>Item</string>
-						<string>Location</string>
+						<string>Category</string>
 					</array>
 					<array>
 						<integer>2</integer>

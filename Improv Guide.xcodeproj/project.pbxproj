@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD4A56A91C3DAA8F00E86816 /* Random.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD4A56A81C3DAA8F00E86816 /* Random.plist */; };
 		CD6C44721C1AE6AF00B2141C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44711C1AE6AF00B2141C /* AppDelegate.swift */; };
 		CD6C44741C1AE6AF00B2141C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6C44731C1AE6AF00B2141C /* MenuViewController.swift */; };
 		CD6C44771C1AE6B000B2141C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6C44751C1AE6B000B2141C /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD4A56A81C3DAA8F00E86816 /* Random.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Random.plist; sourceTree = "<group>"; };
 		CD6C446E1C1AE6AF00B2141C /* Improv Guide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Improv Guide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6C44711C1AE6AF00B2141C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD6C44731C1AE6AF00B2141C /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				CD6C447A1C1AE6B000B2141C /* LaunchScreen.storyboard */,
 				CD6C447D1C1AE6B000B2141C /* Info.plist */,
 				CD7B4C8F1C1AF01500CE36DC /* Data.plist */,
+				CD4A56A81C3DAA8F00E86816 /* Random.plist */,
 			);
 			path = "Improv Guide";
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				CD6C447C1C1AE6B000B2141C /* LaunchScreen.storyboard in Resources */,
 				CD6C44791C1AE6B000B2141C /* Assets.xcassets in Resources */,
 				CD7B4C901C1AF01500CE36DC /* Data.plist in Resources */,
+				CD4A56A91C3DAA8F00E86816 /* Random.plist in Resources */,
 				CD6C44771C1AE6B000B2141C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

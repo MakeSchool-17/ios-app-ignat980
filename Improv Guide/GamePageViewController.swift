@@ -13,13 +13,35 @@ class GamePageViewController: UIViewController {
     @IBOutlet var instructions: UITextView!
     @IBOutlet var instructionHeight: NSLayoutConstraint!
     
+    let paragraphStyle = NSMutableParagraphStyle()
+    
+    var gameData: String? {
+        didSet {
+            if gameData != nil{
+                let attributes:[String:AnyObject] = [NSParagraphStyleAttributeName:paragraphStyle]
+                instructions.attributedText = NSMutableAttributedString(string: gameData!, attributes: attributes)
+                instructions.font = UIFont.systemFontOfSize(36)
+            }
+        }
+    }
+    var random:Array<String> = [] {
+        didSet {
+            if !random.isEmpty {
+                let attributedInstructions = NSMutableAttributedString(attributedString: instructions.attributedText)
+                let appenededRandom = NSMutableAttributedString(string: "\nor generate here", attributes:[NSLinkAttributeName:"", NSParagraphStyleAttributeName:paragraphStyle])
+                attributedInstructions.appendAttributedString(appenededRandom)
+                instructions.attributedText = attributedInstructions
+                instructions.font = UIFont.systemFontOfSize(36)
+            }
+        }
+    }
+    var randomData: NSDictionary!
     var step:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let paragraphStyle = NSMutableParagraphStyle()
-//        paragraphStyle.lineBreakMode = .ByWordWrapping
-//        instrutionHeight.constant = NSString(string: instructions.text).boundingRectWithSize(CGSizeMake(instructions.frame.width, CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName : instructions.font!, NSParagraphStyleAttributeName: paragraphStyle], context: nil).height
+        paragraphStyle.setParagraphStyle(NSParagraphStyle.defaultParagraphStyle())
+        paragraphStyle.alignment = .Center
         // Do any additional setup after loading the view.
     }
     
@@ -27,6 +49,7 @@ class GamePageViewController: UIViewController {
 //        instructions.sizeToFit()
 //        instructionHeight.constant = instructions.frame.height
     }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         instructions.sizeToFit()
@@ -49,15 +72,27 @@ class GamePageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+//        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+//        instructionHeight.constant = instructions.size
+//    }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+}
+
+extension GamePageViewController:UITextViewDelegate {
+    
+    
+    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
+        if random.count != 0 {
+            let randomString = "\n\(randomData.valueForKeyPath("\(random[0]).@randomElement") as! String)"
+            let range = NSString(string:textView.attributedText.string).rangeOfString(gameData!)
+            let instructionText = NSMutableAttributedString(attributedString: textView.attributedText.attributedSubstringFromRange(range))
+            let linkAttributes = textView.attributedText.attributesAtIndex(range.location + range.length + 2, effectiveRange: nil)
+            let attributedRandomString = NSMutableAttributedString(string: randomString, attributes: linkAttributes)
+            instructionText.appendAttributedString(attributedRandomString)
+            textView.attributedText = instructionText
+        }
+        return false
     }
-    */
-
 }
