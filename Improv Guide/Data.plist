@@ -8,14 +8,14 @@
 		<array>
 			<dict>
 				<key>Randoms</key>
-				<array>
+				<dict>
+					<key>2</key>
 					<array>
-						<integer>2</integer>
 						<string>Crime</string>
 						<string>Person</string>
 						<string>Place</string>
 					</array>
-				</array>
+				</dict>
 				<key>Parts</key>
 				<array>
 					<string>Pick a criminal, they should leave temporarily</string>
@@ -32,7 +32,7 @@ The idea is that criminal needs to guess the crime, the accomplice, and the plac
 			</dict>
 			<dict>
 				<key>Randoms</key>
-				<array/>
+				<dict/>
 				<key>Parts</key>
 				<array>
 					<string>Do a scene, talk only in gibberish</string>
@@ -48,13 +48,13 @@ Improvise a scene, completely in gibberish, no translations provided. The scene 
 		<array>
 			<dict>
 				<key>Randoms</key>
-				<array/>
+				<dict/>
 				<key>Parts</key>
 				<array>
 					<string>First Person says a line</string>
 					<string>Second person responds to the line</string>
 					<string>First person responds to the Second person&apos;s line</string>
-					<string>Restart</string>
+					<string>Restart! First person says a line</string>
 				</array>
 				<key>Description</key>
 				<string>A great exercise to train scene start-ups. 2 players initiate a scene; the scene is broken off after 3 lines. The goal is to establish as much as possible as fast as possible. The point is to understand the who, what and where of a scene, the characters, the environment and the points of view or drivers of the characters.
@@ -67,29 +67,29 @@ Once 3 lines of dialog have been said, restart and do a different scene.</string
 		<array>
 			<dict>
 				<key>Randoms</key>
-				<array>
+				<dict>
+					<key>10</key>
 					<array>
-						<integer>0</integer>
 						<string>Category</string>
 					</array>
+					<key>7</key>
 					<array>
-						<integer>4</integer>
 						<string>Category</string>
 					</array>
+					<key>1</key>
 					<array>
-						<integer>2</integer>
 						<string>Category</string>
 					</array>
-				</array>
+				</dict>
 				<key>Parts</key>
 				<array>
 					<string>Stand in a circle</string>
 					<string>Pick a category</string>
-					<string>State an example of the category, then point to someone else</string>
-					<string>Keep pointing. That someone else says another example and points to someone else</string>
-					<string>Continue the pattern until eveyone is pointing at one person</string>
-					<string>Repeat the pattern</string>
-					<string>Drop the arms when the pattern is memorized</string>
+					<string>State an example of the category, then point to someone else. Keep pointing!</string>
+					<string>The pointed to person says another example and points to someone else</string>
+					<string>Continue the pattern (say an example and point to a new person) until eveyone is pointing at someone</string>
+					<string>Repeat the &quot;chain&quot;, say your word and point to the person you pointed to last time and so on</string>
+					<string>Drop the arms when the &quot;chain&quot; of words is memorized</string>
 					<string>Do the same with a new category, with a different pointing pattern</string>
 					<string>Repeat the new pattern until it is memorized</string>
 					<string>Now, without pointing, run both categories at the same time</string>
@@ -104,13 +104,17 @@ The idea is not only to listen for the item right before yours in the series (so
 			</dict>
 			<dict>
 				<key>Randoms</key>
-				<array/>
+				<dict>
+					<key>1</key>
+					<array>
+						<string>Category</string>
+					</array>
+				</dict>
 				<key>Parts</key>
 				<array>
 					<string>Stand in a circle</string>
-					<string>Say a category</string>
-					<string>Next person, say three things from the category</string>
-					<string>Repeat</string>
+					<string>Pick a category</string>
+					<string>Next person says three things from the category</string>
 				</array>
 				<key>Description</key>
 				<string>This is a good warm up for expanding upon a scene, as it trains you to think about similiar objects you would find in a category.</string>

@@ -130,35 +130,3 @@ extension MenuViewController: UITableViewDelegate {
         }
     }
 }
-
-extension NSObject {
-    /// Returns the value for the derived property identified by a given key path, with indexes.
-    ///
-    /// :params: keyPath A key path of the form relationship.property (with one or more relationships); for example “department.name” or “department.manager.lastName”.
-    func valueForKeyPathWithIndexes(keyPath:String) -> NSObject {
-        if keyPath.containsString("[") {
-            let parts = keyPath.componentsSeparatedByString(".")
-            var currentObj = self
-            for (var i = 0;i < parts.count; i++) {
-                if parts[i].containsString("[") {
-                    if let index = Int(parts[i].substringToIndex(parts[i].endIndex.predecessor()).substringFromIndex(parts[i].startIndex.successor())){
-                        currentObj = (currentObj as! NSArray).objectAtIndex(index) as! NSObject
-                    } else {
-                        print("The value between the [] in the key path is not an integer")
-                    }
-                } else {
-                    currentObj = currentObj.valueForKey(parts[i]) as! NSObject
-                }
-            }
-            return currentObj
-        } else {
-            return self.valueForKeyPath(keyPath) as! NSObject
-        }
-    }
-}
-
-extension NSArray {
-    func randomElement() -> AnyObject {
-        return self.objectAtIndex(Int(arc4random_uniform(UInt32(self.count))))
-    }
-}

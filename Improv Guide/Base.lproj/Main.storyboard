@@ -74,21 +74,6 @@
                                     <constraint firstAttribute="height" constant="3" id="4ms-tm-Y9L"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-Cb-QDh" userLabel="Description">
-                                <rect key="frame" x="16" y="67" width="548" height="533"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="533" id="S88-n3-oz5"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="S88-n3-oz5"/>
-                                    </mask>
-                                </variation>
-                            </textView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoJ-LF-K87">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <constraints>
@@ -115,6 +100,21 @@
                                     </mask>
                                 </variation>
                             </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-Cb-QDh" userLabel="Description">
+                                <rect key="frame" x="16" y="67" width="548" height="533"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="533" id="S88-n3-oz5"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S88-n3-oz5"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -160,10 +160,10 @@
             </objects>
             <point key="canvasLocation" x="1737" y="377"/>
         </scene>
-        <!--Game Page View Controller-->
+        <!--Page View Controller-->
         <scene sceneID="Ra0-Cg-Ehb">
             <objects>
-                <viewController storyboardIdentifier="gamePageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Wt-2d-oIl" customClass="GamePageViewController" customModule="Improv_Guide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Wt-2d-oIl" customClass="PageViewController" customModule="Improv_Guide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZJn-Cc-hyX"/>
                         <viewControllerLayoutGuide type="bottom" id="sCF-iO-zXB"/>
@@ -196,22 +196,35 @@
                                     <action selector="goBack:" destination="5Wt-2d-oIl" eventType="touchUpInside" id="tcm-6o-kO7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COe-XG-Dcd">
+                                <rect key="frame" x="530" y="530" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="cge-Jp-wxT"/>
+                                    <constraint firstAttribute="height" constant="50" id="mza-XR-We4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="&gt;"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EqW-FH-RrI" firstAttribute="top" secondItem="ZJn-Cc-hyX" secondAttribute="bottom" constant="-8" id="0d1-Tz-5lQ"/>
                             <constraint firstItem="EqW-FH-RrI" firstAttribute="leading" secondItem="jZZ-ta-H6L" secondAttribute="leading" id="7dc-6g-Wl1"/>
                             <constraint firstItem="jZZ-ta-H6L" firstAttribute="top" secondItem="EqW-FH-RrI" secondAttribute="bottom" constant="3" id="Cvo-di-2wb"/>
+                            <constraint firstAttribute="bottom" secondItem="COe-XG-Dcd" secondAttribute="bottom" constant="20" symbolic="YES" id="KYa-ur-dlt"/>
                             <constraint firstItem="jZZ-ta-H6L" firstAttribute="centerX" secondItem="41i-gC-fXw" secondAttribute="centerX" id="Vey-wq-fqd"/>
                             <constraint firstItem="jZZ-ta-H6L" firstAttribute="leading" secondItem="41i-gC-fXw" secondAttribute="leading" id="cqo-4D-3Oz"/>
                             <constraint firstItem="jZZ-ta-H6L" firstAttribute="centerY" secondItem="41i-gC-fXw" secondAttribute="centerY" id="g50-YB-JJY"/>
+                            <constraint firstItem="COe-XG-Dcd" firstAttribute="trailing" secondItem="41i-gC-fXw" secondAttribute="trailingMargin" id="imI-XD-obL"/>
                             <constraint firstItem="EqW-FH-RrI" firstAttribute="leading" secondItem="41i-gC-fXw" secondAttribute="leadingMargin" constant="-20" id="tcF-By-HeO"/>
+                            <constraint firstItem="COe-XG-Dcd" firstAttribute="top" secondItem="jZZ-ta-H6L" secondAttribute="bottom" constant="5" id="xIX-oA-hCM"/>
                             <constraint firstAttribute="trailing" secondItem="jZZ-ta-H6L" secondAttribute="trailing" id="zEi-rt-4PA"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="7dc-6g-Wl1"/>
                                 <exclude reference="Cvo-di-2wb"/>
+                                <exclude reference="xIX-oA-hCM"/>
                             </mask>
                         </variation>
                     </view>
