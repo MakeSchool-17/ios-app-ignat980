@@ -15,26 +15,48 @@ class PageViewController: UIViewController {
     @objc @IBOutlet weak var dataSource: PageControllerDataSource? {
         didSet {
             if dataSource != nil {
-                instructions.attributedText = NSMutableAttributedString(string: (dataSource?.dataForPage(step))!, attributes: bodyAttributes)
-                if let random = dataSource?.previousRandomForPage(step) {
+                instructions.attributedText = NSMutableAttributedString(string: (dataSource?.instructionForPage(self))!, attributes: bodyAttributes)
+                if let random = dataSource?.previousRandomsForPage(self) {
                     var endString:String
-                    if random == "" {
+                    if random.isEmpty {
                         endString = "or generate here"
                     } else {
-                        endString = random
+                        endString = random.joinWithSeparator("\n")
                     }
                     let attributedInstructions = NSMutableAttributedString(attributedString: instructions.attributedText)
-                    let appenededRandom = NSMutableAttributedString(string: endString, attributes: bodyAttributes + [NSLinkAttributeName: ""])
-                    instructions.attributedText = attributedInstructions + "\n" + appenededRandom
+                    var appendedRandom = NSMutableAttributedString()
+                    if random.isEmpty {
+                        appendedRandom = NSMutableAttributedString(string: endString, attributes: bodyAttributes + [NSLinkAttributeName: "0"])
+                    } else {
+                        if dataSource?.titleForPage(self) == "Good Cop, Bad Cop"{
+                            for (index, word) in random.enumerate() {
+                                switch index {
+                                case 0:
+                                    appendedRandom.appendAttributedString(NSAttributedString(string: "The Criminal committed ", attributes: bodyAttributes))
+                                case 1:
+                                    appendedRandom.appendAttributedString(NSAttributedString(string: "\nwith ", attributes: bodyAttributes))
+                                case 2:
+                                    appendedRandom.appendAttributedString(NSAttributedString(string: "\nin ", attributes: bodyAttributes))
+                                default:
+                                    break
+                                }
+                                appendedRandom.appendAttributedString(NSAttributedString(string: word, attributes: bodyAttributes + [NSLinkAttributeName: "\(index)", NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]))
+                            }
+                        } else {
+                            for (index, word) in random.enumerate() {
+                                appendedRandom.appendAttributedString(NSAttributedString(string: word, attributes: bodyAttributes + [NSLinkAttributeName: "\(index)", NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]))
+                            }
+                        }
+                    }
+                    instructions.attributedText = attributedInstructions + "\n" + appendedRandom
                 }
             }
         }
     }
     
     let paragraphStyle = NSMutableParagraphStyle()
-    
-    var randomData: NSDictionary!
     var step:Int = 0
+    
     private var bodyAttributes:[String:AnyObject] = [:]
     
     override func viewDidLoad() {
@@ -56,7 +78,7 @@ class PageViewController: UIViewController {
     
     
     @IBAction func goBack(sender:UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -76,14 +98,62 @@ extension PageViewController:UITextViewDelegate {
     
     
     func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
-        if dataSource?.previousRandomForPage(step) != nil {
-            let randomString = dataSource?.randomElementForPage(step, atIndex: 0) ?? ""
-            let range = NSString(string:textView.attributedText.string).rangeOfString(dataSource!.dataForPage(step))
-            let instructionText = NSMutableAttributedString(attributedString: textView.attributedText[range])
-            let linkAttributes = textView.attributedText»(range.endIndex + 2)
-            let bodyAttributes = textView.attributedText»(0)
-            let attributedRandomString = NSMutableAttributedString(string: randomString, attributes: linkAttributes)
-            textView.attributedText = instructionText + NSMutableAttributedString(string: "\n", attributes: bodyAttributes) + attributedRandomString
+        if dataSource?.previousRandomsForPage(self) != nil {
+            let randomString = dataSource?.randomElementForPage(self, atIndex: Int(URL.absoluteString)!) ?? ""
+            let range = NSString(string:textView.attributedText.string).rangeOfString(dataSource!.instructionForPage(self))
+            let instructionText = textView.attributedText[range]
+            let texts = textView.attributedText.string.componentsSeparatedByString("\n")
+            let linkAttributes = bodyAttributes + [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
+            var attributedRandomString = NSMutableAttributedString()
+            if texts.count > 2 {
+                let generatedWords = dataSource!.previousRandomsForPage(self)!
+                for (index, word) in generatedWords.enumerate() {
+                    let attributedWord:NSAttributedString
+                    let title = dataSource?.titleForPage(self)
+                    if title == "Good Cop, Bad Cop" {
+                        switch index {
+                        case 0:
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: "The Criminal committed ", attributes: bodyAttributes))
+                        case 1:
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: "\nwith ", attributes: bodyAttributes))
+                        case 2:
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: "\nin ", attributes: bodyAttributes))
+                        default:
+                            break
+                        }
+                    }
+                    if index == Int(URL.absoluteString)! {
+                        attributedWord = NSAttributedString(string: randomString, attributes: linkAttributes + [NSLinkAttributeName: "\(index)"])
+                    } else {
+                        attributedWord = NSAttributedString(string: word, attributes: linkAttributes + [NSLinkAttributeName:"\(index)"])
+                    }
+                    attributedRandomString.appendAttributedString(attributedWord)
+                    if title != "Good Cop, Bad Cop" && index < generatedWords.count - 1 {
+                        attributedRandomString.appendAttributedString(NSAttributedString(string: "\n", attributes: bodyAttributes))
+                    }
+                }
+            } else {
+                if dataSource?.titleForPage(self) == "Good Cop, Bad Cop" {
+                    for index in 0...2 {
+                        switch index {
+                        case 0:
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: "The Criminal committed ", attributes: bodyAttributes))
+                        case 1:
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: "with ", attributes: bodyAttributes))
+                        case 2:
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: "in ", attributes: bodyAttributes))
+                            
+                        default:
+                            break
+                        }
+                        attributedRandomString.appendAttributedString(NSAttributedString(string: (dataSource?.randomElementForPage(self, atIndex: index))! + "\n", attributes: linkAttributes + [NSLinkAttributeName: "\(index)"]))
+                    }
+                } else {
+                    attributedRandomString = NSMutableAttributedString(string: randomString, attributes: linkAttributes + [NSLinkAttributeName: "0"])
+                }
+            }
+            textView.attributedText = instructionText + "\n" + attributedRandomString
+            textView.setNeedsDisplay()
         }
         return false
     }
@@ -97,7 +167,9 @@ extension PageViewController:UITextViewDelegate {
 
 
 @objc protocol PageControllerDataSource:NSObjectProtocol {
-    func dataForPage(step:Int) -> String
-    func randomElementForPage(step:Int, atIndex:Int) -> String
-    func previousRandomForPage(step:Int) -> String?
+    func instructionForPage(pageController: PageViewController) -> String
+    func titleForPage(pageController: PageViewController) -> String
+    func randomElementForPage(pageController: PageViewController, atIndex index:Int) -> String
+    func previousRandomsForPage(pageController: PageViewController) -> [String]?
+    func randomTypesForPage(pageController: PageViewController) -> [String]
 }

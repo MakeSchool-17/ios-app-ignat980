@@ -1,4 +1,4 @@
-//
+    //
 //  PagedGameViewController.swift
 //  Improv Guide
 //
@@ -13,18 +13,20 @@ class PagedGameViewController: UIPageViewController {
     var gameData: NSDictionary?
     var randomData = [String:[String]]()
     var randoms =  [Int:[String]]()
-    var generatedRandoms = [Int:String]()
+    var generatedRandoms = [Int:[String]]()
     var currentPageRandomTypes = [String]()
     var currentStep = 0
+    var previousStep = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataSource = self
+        dataSource = self
+        delegate = self
         if let unwrappedRandoms = gameData?["Randoms"] as? NSDictionary {
             for key: AnyObject in unwrappedRandoms.allKeys {
                 let stringKey = key as! String
                 if let keyValue = unwrappedRandoms[stringKey] {
-                    self.randoms[Int(stringKey)!] = keyValue as? [String]
+                    randoms[Int(stringKey)!] = keyValue as? [String]
                 }
             }
         }
@@ -37,7 +39,7 @@ class PagedGameViewController: UIPageViewController {
             print("Error reading plist: \(error), format: \(format)");
         }
         let game = makeGamePage(withStep: 0)
-        self.setViewControllers([game], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+        setViewControllers([game], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         game.instructions.setNeedsLayout()
         
     }
@@ -48,14 +50,14 @@ class PagedGameViewController: UIPageViewController {
     }
     
     func makeGamePage(withStep step:Int) -> PageViewController {
-        self.currentStep = step
-        let game = self.storyboard?.instantiateViewControllerWithIdentifier("pageController") as! PageViewController
+        previousStep = currentStep
+        currentStep = step
+        let game = storyboard?.instantiateViewControllerWithIdentifier("pageController") as! PageViewController
         let _ = game.view
         game.step = step
-        self.currentStep = step
-        self.currentPageRandomTypes = []
+        currentPageRandomTypes = []
         if let randomTypesArray = randoms[step] {
-            self.currentPageRandomTypes = randomTypesArray
+            currentPageRandomTypes = randomTypesArray
         }
         game.dataSource = self
         return game
@@ -75,57 +77,80 @@ class PagedGameViewController: UIPageViewController {
 
 extension PagedGameViewController: PageControllerDataSource {
     
-    func dataForPage(step: Int) -> String {
-        return gameData?.valueForKeyPathWithIndexes("Parts.[\(step)]") as? String ?? ""
+    func instructionForPage(pageController:PageViewController) -> String {
+        return gameData?.valueForKeyPathWithIndexes("Parts.[\(pageController.step)]") as? String ?? ""
+    }
+
+    func titleForPage(pageController:PageViewController) -> String {
+        return gameData?.valueForKeyPathWithIndexes("Title") as? String ?? ""
     }
     
-    func randomElementForPage(step: Int, atIndex:Int) -> String {
-        if let temp = randomData[currentPageRandomTypes[atIndex]] {
-            self.generatedRandoms[step] = temp~
+    func randomElementForPage(pageController:PageViewController, atIndex index:Int) -> String {
+        if let randomWordsForType = randomData[currentPageRandomTypes[index]] {
+            if generatedRandoms[pageController.step] == nil {
+                generatedRandoms[pageController.step] = []
+            }
+            if index >= generatedRandoms[pageController.step]?.count {
+                generatedRandoms[pageController.step]?.insert(randomWordsForType~, atIndex: index)
+            } else {
+                generatedRandoms[pageController.step]?[index] = randomWordsForType~
+            }
         }
-        return self.generatedRandoms[step]!
+        return generatedRandoms[pageController.step]![index]
     }
     
-    func previousRandomForPage(step:Int) -> String? {
+    func previousRandomsForPage(pageController:PageViewController) -> [String]? {
         if currentPageRandomTypes.isEmpty {
             return nil
         }
-        if let generated = generatedRandoms[step] {
+        if let generated = generatedRandoms[pageController.step] {
             return generated
         }
-        return ""
+        return []
+    }
+    
+    func randomTypesForPage(pageController: PageViewController) -> [String] {
+        return currentPageRandomTypes
     }
 }
 
 extension PagedGameViewController: UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        if self.currentStep == 0 {
+        if currentStep == 0 {
             return nil
         } else {
-            return makeGamePage(withStep: self.currentStep.predecessor())
+            return makeGamePage(withStep: currentStep.predecessor())
         }
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
-        if self.currentStep.successor() >= self.gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0 {
+        if currentStep.successor() >= gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0 {
             let title = gameData?.valueForKey("Title") as? String
             if  title == "Three Lines" || title == "Three Things" {
                 return makeGamePage(withStep: 1)
             }
             return nil
         } else {
-            return makeGamePage(withStep: self.currentStep.successor())
+            return makeGamePage(withStep: currentStep.successor())
         }
     }
     
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return self.gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0
+        return gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return self.currentStep
+        return currentStep
+    }
+}
+
+extension PagedGameViewController: UIPageViewControllerDelegate {
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if !completed {
+            self.setViewControllers([makeGamePage(withStep: previousStep)], direction: .Forward, animated: false, completion: nil)
+        }
     }
 }

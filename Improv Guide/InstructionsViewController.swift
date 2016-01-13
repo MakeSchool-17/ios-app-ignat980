@@ -27,7 +27,7 @@ class InstructionsViewController: UIViewController {
     }
     
     @IBAction func closeButtonPressed(sender:AnyObject) {
-        self.dismissViewControllerAnimated(true, completion:nil)
+        dismissViewControllerAnimated(true, completion:nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

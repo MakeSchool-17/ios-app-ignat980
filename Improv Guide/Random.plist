@@ -2,12 +2,46 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Crime</key>
+	<array>
+		<string>a Pickpocketing</string>
+		<string>an Inside Job</string>
+		<string>Dangerous Driving</string>
+		<string>a Bomb Threat</string>
+		<string>Treason</string>
+		<string>a Data Breach</string>
+		<string>a Prison Escape</string>
+		<string>Arson</string>
+		<string>Tax Evasion</string>
+		<string>a Jaywalk</string>
+		<string>a Murder</string>
+		<string>a Robbery</string>
+	</array>
 	<key>Place</key>
-	<array/>
+	<array>
+		<string>Timbuktu</string>
+		<string>Berlin</string>
+		<string>a Theater</string>
+		<string>the White House</string>
+		<string>a Western Theme Park</string>
+		<string>a Treehouse</string>
+		<string>Paris</string>
+		<string>an Ice Cream Shop</string>
+	</array>
 	<key>Person</key>
-	<array/>
+	<array>
+		<string>A Google Employee</string>
+		<string>A Carpenter</string>
+		<string>Superman</string>
+		<string>A Teacher</string>
+		<string>A Window Cleaner</string>
+		<string>Your Dad</string>
+		<string>Barack Obama</string>
+		<string>Abraham Lincoln</string>
+	</array>
 	<key>Category</key>
 	<array>
+		<string>Drinks</string>
 		<string>Video Games</string>
 		<string>Companies</string>
 		<string>Countries</string>

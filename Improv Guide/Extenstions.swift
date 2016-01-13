@@ -13,7 +13,7 @@ extension NSObject {
     /// Returns the value for the derived property identified by a given key path, with indexes.
     ///
     /// :params: keyPath A key path of the form relationship.property (with one or more relationships); for example “department.name” or “department.manager.lastName”.
-    func valueForKeyPathWithIndexes(keyPath:String) -> NSObject {
+    func valueForKeyPathWithIndexes(keyPath: String) -> NSObject {
         if keyPath.containsString("[") {
             let parts = keyPath.componentsSeparatedByString(".")
             var currentObj = self
@@ -37,38 +37,49 @@ extension NSObject {
 
 extension Array {
     func randomElement() -> Element {
-        return self[Int(arc4random_uniform(UInt32(self.count)))]
+        return self[Int(arc4random_uniform(UInt32(count)))]
     }
 }
 
 extension NSRange {
     
-    init(location:Int, length:Int) {
+    init(location: Int, length: Int) {
         self.location = location
         self.length = length
     }
     
-    init(_ location:Int, _ length:Int) {
+    init(_ location: Int, _ length: Int) {
         self.location = location
         self.length = length
     }
     
-    init(range:Range<Int>) {
+    init(range: Range<Int>) {
         self.location = range.startIndex
         self.length = range.endIndex - range.startIndex
     }
     
-    var startIndex:Int { get { return location } }
-    var endIndex:Int { get { return location + length } }
-    var asRange:Range<Int> { get { return location..<location + length } }
-    var isEmpty:Bool { get { return length == 0 } }
+    var startIndex: Int {
+        return location
+    }
+    
+    var endIndex: Int {
+        return location + length
+    }
+    
+    var asRange: Range<Int> {
+        return location..<location + length
+    }
+    
+    var isEmpty: Bool {
+        return length == 0
+    }
 }
 
 extension Range where Element:SignedIntegerType  {
-    var asNSRange:NSRange {
+    var asNSRange: NSRange {
         get {
             if Element(0) is Int {
-                return NSRange(location: self.startIndex as! Int, length: (self.endIndex as! Int) - (self.startIndex as! Int))
+                return NSRange(location: startIndex as! Int, length: (endIndex as! Int) - (startIndex as! Int))
             } else {
                 raise(404)
                 return NSRange(location: 0, length: 0)
@@ -78,50 +89,50 @@ extension Range where Element:SignedIntegerType  {
 }
 
 extension NSAttributedString {
-    subscript (range:NSRange) -> NSAttributedString {
+    subscript (range: NSRange) -> NSAttributedString {
         get {
-            assert(range.location < self.length, "Index out of range")
-            return self.attributedSubstringFromRange(range)
+            assert(range.location < length, "Index out of range")
+            return attributedSubstringFromRange(range)
         }
     }
 }
 
 extension NSMutableAttributedString {
     
-    override subscript (range:NSRange) -> NSMutableAttributedString {
+    override subscript (range: NSRange) -> NSMutableAttributedString {
         get {
-            assert(range.location < self.length, "Index out of range")
+            assert(range.location < length, "Index out of range")
             return NSMutableAttributedString(attributedString: super[range])
         }
         
         set {
-            self.insertAttributedString(newValue, atIndex: range.location)
+            insertAttributedString(newValue, atIndex: range.location)
         }
     }
     
-    subscript (range:Range<Int>) -> NSMutableAttributedString {
+    subscript (range: Range<Int>) -> NSMutableAttributedString {
         get {
-            assert(range.startIndex < self.length, "Index out of range")
+            assert(range.startIndex < length, "Index out of range")
             return NSMutableAttributedString(attributedString: super[NSRange(range)])
         }
         
         set {
-            if range.startIndex >= self.length {
-                self.appendAttributedString(newValue)
+            if range.startIndex >= length {
+                appendAttributedString(newValue)
             } else {
-                self.insertAttributedString(newValue, atIndex: range.startIndex)
+                insertAttributedString(newValue, atIndex: range.startIndex)
             }
         }
     }
     
-    subscript (index:Int, length:Int) -> NSMutableAttributedString {
+    subscript (index: Int, length: Int) -> NSMutableAttributedString {
         get {
-            assert(index < self.length, "Index out of range")
+            assert(index < length, "Index out of range")
             return NSMutableAttributedString(attributedString: super[NSRange(location: index, length: length)])
         }
         
         set {
-            self.insertAttributedString(newValue, atIndex: index)
+            insertAttributedString(newValue, atIndex: index)
         }
     }
 }
@@ -131,39 +142,63 @@ infix operator » {}
 postfix operator ~ {}
 
 ///Returns a Random Element from the array
-postfix func ~<T> (array:Array<T>) -> T {
+postfix func ~<T> (array: Array<T>) -> T {
     return array.randomElement()
 }
 
-func » (attributedString:NSMutableAttributedString, index:Int) -> [String:AnyObject] {
+func » (attributedString: NSMutableAttributedString, index: Int) -> [String:AnyObject] {
     assert(index >= 0 && index < attributedString.length, "Index '\(index)' out of bounds")
     return attributedString.attributesAtIndex(index, effectiveRange: nil)
 }
 
-func » (attributedString:NSAttributedString, index:Int) -> [String:AnyObject] {
+func » (attributedString: NSAttributedString, index: Int) -> [String:AnyObject] {
     assert(index >= 0 && index < attributedString.length, "Index '\(index)' out of bounds")
     return attributedString.attributesAtIndex(index, effectiveRange: nil)
 }
 
-func + (leftString:NSMutableAttributedString, rightString:NSMutableAttributedString) -> NSMutableAttributedString {
+func + (leftString: NSMutableAttributedString, rightString: NSMutableAttributedString) -> NSMutableAttributedString {
     let copy = leftString.mutableCopy() as! NSMutableAttributedString
     copy.appendAttributedString(rightString)
     return copy
 }
 
-func + (attributedString:NSMutableAttributedString, str:String) -> NSMutableAttributedString {
+func + (leftString: NSAttributedString, rightString: NSMutableAttributedString) -> NSMutableAttributedString {
+    let copy = leftString.mutableCopy() as! NSMutableAttributedString
+    copy.appendAttributedString(rightString)
+    return copy
+}
+
+func + (leftString: NSMutableAttributedString, rightString: NSAttributedString) -> NSMutableAttributedString {
+    let copy = leftString.mutableCopy() as! NSMutableAttributedString
+    copy.appendAttributedString(rightString)
+    return copy
+}
+
+func + (attributedString: NSMutableAttributedString, str: String) -> NSMutableAttributedString {
     let copy = attributedString.mutableCopy() as! NSMutableAttributedString
     copy.appendAttributedString(NSAttributedString(string: str, attributes:attributedString.attributesAtIndex(attributedString.length.predecessor(), effectiveRange: nil)))
     return copy
 }
 
-func + (str:String, attributedString:NSMutableAttributedString) -> NSMutableAttributedString {
+func + (str: String, attributedString: NSMutableAttributedString) -> NSMutableAttributedString {
     let new = NSMutableAttributedString(string: str, attributes:attributedString.attributesAtIndex(0, effectiveRange: nil))
     new.appendAttributedString(attributedString)
     return new
 }
 
-func + <K, V>(left: [K: V], right: [K: V]) -> [K: V] {
+func + (attributedString: NSAttributedString, str: String) -> NSMutableAttributedString {
+    let copy = attributedString.mutableCopy() as! NSMutableAttributedString
+    copy.appendAttributedString(NSAttributedString(string: str, attributes:attributedString.attributesAtIndex(attributedString.length.predecessor(), effectiveRange: nil)))
+    return copy
+}
+
+func + (str: String, attributedString: NSAttributedString) -> NSMutableAttributedString {
+    let new = NSMutableAttributedString(string: str, attributes:attributedString.attributesAtIndex(0, effectiveRange: nil))
+    new.appendAttributedString(attributedString)
+    return new
+}
+
+func + <K, V>(left: [K:V], right: [K:V]) -> [K:V] {
     var copy = left
     for (k, v) in right {
         copy[k] = v

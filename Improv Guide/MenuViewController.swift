@@ -30,8 +30,7 @@ class MenuViewController: UIViewController {
         //Convert from the data on disk into memory
         let plistXML = NSFileManager.defaultManager().contentsAtPath(plistPath)
         do {
-            self.improvData = try NSPropertyListSerialization.propertyListWithData(plistXML!, options: NSPropertyListReadOptions.MutableContainersAndLeaves, format: format) as! NSDictionary
-            print(improvData)
+            improvData = try NSPropertyListSerialization.propertyListWithData(plistXML!, options: NSPropertyListReadOptions.MutableContainersAndLeaves, format: format) as! NSDictionary
         } catch let error {
             print("Error reading plist: \(error), format: \(format)");
         }
@@ -75,11 +74,11 @@ extension MenuViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return self.improvData.valueForKeyPath("Games.WarmUp.@count") as! Int
+            return improvData.valueForKeyPath("Games.WarmUp.@count") as! Int
         case 1:
-            return self.improvData.valueForKeyPath("Games.Exercise.@count") as! Int
+            return improvData.valueForKeyPath("Games.Exercise.@count") as! Int
         case 2:
-            return self.improvData.valueForKeyPath("Games.Scene.@count") as! Int
+            return improvData.valueForKeyPath("Games.Scene.@count") as! Int
         default:
             return 0
         }
@@ -96,11 +95,11 @@ extension MenuViewController: UITableViewDataSource {
         //cell's text label = data.Games.<Type>[<row>][Title]
         switch indexPath.section {
         case 0:
-            cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.WarmUp.[\(indexPath.row)].Title") as! String)
+            cell?.textLabel?.text = (improvData.valueForKeyPathWithIndexes("Games.WarmUp.[\(indexPath.row)].Title") as! String)
         case 1:
-            cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.Exercise.[\(indexPath.row)].Title") as! String)
+            cell?.textLabel?.text = (improvData.valueForKeyPathWithIndexes("Games.Exercise.[\(indexPath.row)].Title") as! String)
         case 2:
-            cell?.textLabel?.text = (self.improvData.valueForKeyPathWithIndexes("Games.Scene.[\(indexPath.row)].Title") as! String)
+            cell?.textLabel?.text = (improvData.valueForKeyPathWithIndexes("Games.Scene.[\(indexPath.row)].Title") as! String)
         default:
             cell?.textLabel?.text = "Title not Found"
         }
@@ -120,11 +119,11 @@ extension MenuViewController: UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch indexPath.section {
         case 0:
-            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.WarmUp.[\(indexPath.row)]"))
+            performSegueWithIdentifier("presentGame", sender: improvData.valueForKeyPathWithIndexes("Games.WarmUp.[\(indexPath.row)]"))
         case 1:
-            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.Exercise.[\(indexPath.row)]"))
+            performSegueWithIdentifier("presentGame", sender: improvData.valueForKeyPathWithIndexes("Games.Exercise.[\(indexPath.row)]"))
         case 2:
-            self.performSegueWithIdentifier("presentGame", sender: self.improvData.valueForKeyPathWithIndexes("Games.Scene.[\(indexPath.row)]"))
+            performSegueWithIdentifier("presentGame", sender: improvData.valueForKeyPathWithIndexes("Games.Scene.[\(indexPath.row)]"))
         default:
             break
         }
