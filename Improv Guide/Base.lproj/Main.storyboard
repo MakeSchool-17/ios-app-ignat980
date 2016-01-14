@@ -64,16 +64,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUX-YI-BPO" userLabel="Separator">
-                                <rect key="frame" x="0.0" y="64" width="580" height="3"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34000000000000002" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" adjustable="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="4ms-tm-Y9L"/>
-                                </constraints>
-                            </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoJ-LF-K87">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <constraints>
@@ -101,7 +91,7 @@
                                 </variation>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-Cb-QDh" userLabel="Description">
-                                <rect key="frame" x="16" y="67" width="548" height="533"/>
+                                <rect key="frame" x="20" y="64" width="560" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="533" id="S88-n3-oz5"/>
@@ -119,28 +109,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="WoJ-LF-K87" secondAttribute="trailing" id="217-on-x5y"/>
-                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="bottom" secondItem="0Gx-Sa-4OU" secondAttribute="top" id="6eG-EV-Xvu"/>
-                            <constraint firstItem="WoJ-LF-K87" firstAttribute="leading" secondItem="aUX-YI-BPO" secondAttribute="leading" id="Bay-1X-6kx"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="trailing" secondItem="Tox-Os-w9T" secondAttribute="trailingMargin" id="9Vr-pl-HWi"/>
                             <constraint firstItem="WoJ-LF-K87" firstAttribute="top" secondItem="PGK-xh-lIM" secondAttribute="bottom" constant="-20" id="BhY-XW-rG0"/>
-                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="leading" secondItem="Tox-Os-w9T" secondAttribute="leadingMargin" constant="-4" id="FM4-YO-w3n"/>
-                            <constraint firstItem="aUX-YI-BPO" firstAttribute="centerX" secondItem="aFa-Cb-QDh" secondAttribute="centerX" id="FUr-iM-RYz"/>
-                            <constraint firstItem="aUX-YI-BPO" firstAttribute="top" secondItem="WoJ-LF-K87" secondAttribute="bottom" id="HYO-cV-C5a"/>
-                            <constraint firstItem="aUX-YI-BPO" firstAttribute="trailing" secondItem="WoJ-LF-K87" secondAttribute="trailing" id="Izm-ml-Cyc"/>
-                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="top" secondItem="aUX-YI-BPO" secondAttribute="bottom" id="Mwd-tt-4q0"/>
-                            <constraint firstItem="aUX-YI-BPO" firstAttribute="leading" secondItem="Tox-Os-w9T" secondAttribute="leading" id="O7p-zy-E4t"/>
-                            <constraint firstItem="aUX-YI-BPO" firstAttribute="trailing" secondItem="Tox-Os-w9T" secondAttribute="trailingMargin" id="Odf-0S-kgf"/>
-                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="top" secondItem="aUX-YI-BPO" secondAttribute="bottom" id="SPC-um-GNx"/>
-                            <constraint firstItem="0Gx-Sa-4OU" firstAttribute="top" secondItem="aUX-YI-BPO" secondAttribute="bottom" constant="548" id="nzk-vu-52B"/>
-                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="top" secondItem="aUX-YI-BPO" secondAttribute="bottom" id="ydU-k7-ym3"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="leading" secondItem="Tox-Os-w9T" secondAttribute="leadingMargin" id="EzN-LH-jZo"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="bottom" secondItem="0Gx-Sa-4OU" secondAttribute="top" id="LVC-vK-VBM"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="centerX" secondItem="WoJ-LF-K87" secondAttribute="centerX" id="PLk-3j-BUY"/>
+                            <constraint firstItem="aFa-Cb-QDh" firstAttribute="top" secondItem="WoJ-LF-K87" secondAttribute="bottom" id="Xtn-Kp-13a"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Izm-ml-Cyc"/>
-                                <exclude reference="Mwd-tt-4q0"/>
-                                <exclude reference="ydU-k7-ym3"/>
-                                <exclude reference="nzk-vu-52B"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="k0r-tW-IdS"/>
                     <connections>

@@ -18,6 +18,8 @@ class InstructionsViewController: UIViewController {
         super.viewDidLoad()
         titleView.topItem?.title = (gameData?.valueForKey("Title") as? String)
         descriptionView.text = (gameData?.valueForKey("Description") as? String) ?? ""
+        titleView.shadowImage = UIImage()
+        titleView.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         // Do any additional setup after loading the view.
     }
     

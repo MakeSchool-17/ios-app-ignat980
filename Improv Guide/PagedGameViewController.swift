@@ -15,8 +15,6 @@ class PagedGameViewController: UIPageViewController {
     var randoms =  [Int:[String]]()
     var generatedRandoms = [Int:[String]]()
     var currentPageRandomTypes = [String]()
-    var currentStep = 0
-    var previousStep = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +48,6 @@ class PagedGameViewController: UIPageViewController {
     }
     
     func makeGamePage(withStep step:Int) -> PageViewController {
-        previousStep = currentStep
-        currentStep = step
         let game = storyboard?.instantiateViewControllerWithIdentifier("pageController") as! PageViewController
         let _ = game.view
         game.step = step
@@ -117,23 +113,22 @@ extension PagedGameViewController: PageControllerDataSource {
 extension PagedGameViewController: UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        if currentStep == 0 {
+        if (pageViewController.viewControllers![0] as! PageViewController).step == 0 {
             return nil
         } else {
-            return makeGamePage(withStep: currentStep.predecessor())
+            return makeGamePage(withStep: (pageViewController.viewControllers![0] as! PageViewController).step.predecessor())
         }
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        
-        if currentStep.successor() >= gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0 {
+        if (pageViewController.viewControllers![0] as! PageViewController).step.successor() >= gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0 {
             let title = gameData?.valueForKey("Title") as? String
             if  title == "Three Lines" || title == "Three Things" {
                 return makeGamePage(withStep: 1)
             }
             return nil
         } else {
-            return makeGamePage(withStep: currentStep.successor())
+            return makeGamePage(withStep: (pageViewController.viewControllers![0] as! PageViewController).step.successor())
         }
     }
     
@@ -142,15 +137,15 @@ extension PagedGameViewController: UIPageViewControllerDataSource {
         return gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return currentStep
-    }
+//    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+//        return currentStep
+//    }
 }
 
 extension PagedGameViewController: UIPageViewControllerDelegate {
     func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if !completed {
-            self.setViewControllers([makeGamePage(withStep: previousStep)], direction: .Forward, animated: false, completion: nil)
+            self.setViewControllers([makeGamePage(withStep: (previousViewControllers[0] as! PageViewController).step)], direction: .Forward, animated: false, completion: nil)
         }
     }
     

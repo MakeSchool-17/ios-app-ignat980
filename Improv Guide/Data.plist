@@ -21,7 +21,8 @@
 					<string>Pick a criminal, they should leave temporarily</string>
 					<string>Pick a crime, an accomplice, and a place</string>
 					<string>Bring the criminal back in</string>
-					<string>Interrogate the criminal by giving clues about the picked things, but not by explicity stating them (Game ends when the criminal knows the crime, the accomplice, and the place)</string>
+					<string>Interrogate the criminal by giving clues about the crime.
+(Game ends when the criminal says the crime, accomplice, and place)</string>
 				</array>
 				<key>Description</key>
 				<string>Excellent improv game to train listening and context skills.
@@ -97,8 +98,10 @@ Once 3 lines of dialog have been said, restart and do a different scene.</string
 				</array>
 				<key>Description</key>
 				<string>This is a great game to train memorization and concentration.
-You will need to create &quot;chains&quot; of objects from different categories. Some examples of categories are make of cars, girls names, kinds of food, kinds of plants, etc. Make sure to have eye contact when linking your item to the next person.
-The idea is not only to listen for the item right before yours in the series (so you know when it&apos;s your turn), but also to make sure that when you pass an item to someone else, that someone else actually hears you. If not, then repeat your item, to ensure the series does not get broken.</string>
+                    
+You will need to create &quot;chains&quot; of objects from different categories. Some examples of categories are make of cars, types of hardware, kinds of food, kinds of plants, types of clothes, etc. Make sure to have eye contact when linking your item to the next person.
+
+The idea is not only to listen for the item right before your&apos;s in the series (so you know when it&apos;s your turn), but also to make sure that when you pass an item to someone else, that someone else actually hears you. If not, then repeat your item, to ensure the series does not get broken.</string>
 				<key>Title</key>
 				<string>Categories</string>
 			</dict>
