@@ -153,7 +153,9 @@ extension PageViewController:UITextViewDelegate {
                 }
             }
             textView.attributedText = instructionText + "\n" + attributedRandomString
-            textView.setNeedsDisplay()
+            textView.sizeToFit()
+            instructionHeight.constant = textView.frame.height
+            textView.setNeedsLayout()
         }
         return false
     }

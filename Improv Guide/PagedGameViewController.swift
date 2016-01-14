@@ -153,4 +153,9 @@ extension PagedGameViewController: UIPageViewControllerDelegate {
             self.setViewControllers([makeGamePage(withStep: previousStep)], direction: .Forward, animated: false, completion: nil)
         }
     }
+    
+    func pageViewControllerPreferredInterfaceOrientationForPresentation(pageViewController: UIPageViewController) -> UIInterfaceOrientation {
+        return UIInterfaceOrientation.Portrait
+    }
 }
+    
