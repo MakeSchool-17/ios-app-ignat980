@@ -23,8 +23,8 @@
 					<string>Pick a criminal and have them leave temporarily so they cannot hear.</string>
 					<string>Pick a crime, an accomplice, and a place.</string>
 					<string>Bring the criminal back in the room.</string>
-					<string>Interrogate the criminal by giving clues about the crime.
-(Game ends when the criminal says the crime, accomplice, and place)</string>
+					<string>Tell the criminal they must correctly guess the crime, location and place.</string>
+					<string>Cops interrogate the criminal by giving indirect details related to the crime.</string>
 				</array>
 				<key>Description</key>
 				<string>Excellent improv game to train listening and context skills.
@@ -34,22 +34,6 @@ The idea is that criminal needs to guess the crime, the accomplice, and the plac
 They need to give indirect details related to the crime details. If the accomplice is Abraham Lincoln, the cops could mention a tall honest man, pennies, the $5 bill, or civil liberites.</string>
 				<key>Title</key>
 				<string>Good Cop, Bad Cop</string>
-			</dict>
-			<dict>
-				<key>Looping</key>
-				<false/>
-				<key>Randoms</key>
-				<dict/>
-				<key>Parts</key>
-				<array>
-					<string>Do a scene, talk only in gibberish</string>
-				</array>
-				<key>Description</key>
-				<string>Excellent exercise for improv players that suffer from chronic Waffling(Postponing by lack of ideas; aka you just keep on babbling in the hope you`ll have an idea).
-Improvise a scene, completely in gibberish, no translations provided. The scene should be perfectly clear to the audience - we should be perfectly able to translate every gibberish sentence, and the story should make sense.
-This will only work if the stories are extremely simple, and if the Platform is made clear right from the start.</string>
-				<key>Title</key>
-				<string>Just Gibberish</string>
 			</dict>
 		</array>
 		<key>Exercise</key>
@@ -125,6 +109,10 @@ The idea is not only to listen for the item right before your&apos;s in the seri
 				<true/>
 				<key>Randoms</key>
 				<dict>
+					<key>3</key>
+					<array>
+						<string>Category</string>
+					</array>
 					<key>1</key>
 					<array>
 						<string>Category</string>

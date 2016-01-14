@@ -24,25 +24,22 @@ class PageViewController: UIViewController {
                 let linkAttributes = bodyAttributes + [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
                 if let random = dataSource?.previousRandomsForPage(self) {
                     var endString:String
-                    if random.isEmpty {
-                        endString = "Generate here."
-                    } else {
-                        endString = random.joinWithSeparator("\n")
-                    }
-                    let attributedInstructions = NSMutableAttributedString(attributedString: instructions.attributedText)
                     var appendedRandom = NSMutableAttributedString()
                     if random.isEmpty {
+                        endString = "Generate here."
                         appendedRandom = NSMutableAttributedString(string: endString, attributes: linkAttributes + [NSLinkAttributeName: "0"])
-                    } else {
+                    }
+                    let attributedInstructions = NSMutableAttributedString(attributedString: instructions.attributedText)
+                    if !random.isEmpty {
                         if dataSource?.titleForPage(self) == "Good Cop, Bad Cop"{
                             for (index, word) in random.enumerate() {
                                 switch index {
                                 case 0:
                                     appendedRandom.appendAttributedString(NSAttributedString(string: "The criminal committed ", attributes: bodyAttributes))
                                 case 1:
-                                    appendedRandom.appendAttributedString(NSAttributedString(string: "\nwith ", attributes: bodyAttributes))
+                                    appendedRandom.appendAttributedString(NSAttributedString(string: " with ", attributes: bodyAttributes))
                                 case 2:
-                                    appendedRandom.appendAttributedString(NSAttributedString(string: "\nin ", attributes: bodyAttributes))
+                                    appendedRandom.appendAttributedString(NSAttributedString(string: " in ", attributes: bodyAttributes))
                                 default:
                                     break
                                 }
@@ -105,15 +102,17 @@ extension PageViewController:UITextViewDelegate {
     
     func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
         if dataSource?.previousRandomsForPage(self) != nil {
-            let randomString = dataSource?.randomElementForPage(self, atIndex: Int(URL.absoluteString)!) ?? ""
+            let generatedWords = dataSource!.previousRandomsForPage(self)
+            var randomString = dataSource!.randomElementForPage(self, atIndex: Int(URL.absoluteString)!) ?? ""
             let range = NSString(string:textView.attributedText.string).rangeOfString(dataSource!.instructionForPage(self))
             let instructionText = textView.attributedText[range]
-            let texts = textView.attributedText.string.componentsSeparatedByString("\n")
             let linkAttributes = bodyAttributes + [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
             var attributedRandomString = NSMutableAttributedString()
-            if texts.count > 2 {
-                let generatedWords = dataSource!.previousRandomsForPage(self)!
-                for (index, word) in generatedWords.enumerate() {
+            if generatedWords?.count > 1 {
+                while randomString == generatedWords![Int(URL.absoluteString)!] {
+                    randomString = dataSource!.randomElementForPage(self, atIndex: Int(URL.absoluteString)!) ?? ""
+                }
+                for (index, word) in generatedWords!.enumerate() {
                     let attributedWord:NSAttributedString
                     let title = dataSource?.titleForPage(self)
                     if title == "Good Cop, Bad Cop" {
@@ -121,9 +120,9 @@ extension PageViewController:UITextViewDelegate {
                         case 0:
                             attributedRandomString.appendAttributedString(NSAttributedString(string: "The criminal committed ", attributes: bodyAttributes))
                         case 1:
-                            attributedRandomString.appendAttributedString(NSAttributedString(string: "\nwith ", attributes: bodyAttributes))
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: " with ", attributes: bodyAttributes))
                         case 2:
-                            attributedRandomString.appendAttributedString(NSAttributedString(string: "\nin ", attributes: bodyAttributes))
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: " in ", attributes: bodyAttributes))
                         default:
                             break
                         }
@@ -134,7 +133,7 @@ extension PageViewController:UITextViewDelegate {
                         attributedWord = NSAttributedString(string: word, attributes: linkAttributes + [NSLinkAttributeName:"\(index)"])
                     }
                     attributedRandomString.appendAttributedString(attributedWord)
-                    if title != "Good Cop, Bad Cop" && index < generatedWords.count - 1 {
+                    if title != "Good Cop, Bad Cop" && index < generatedWords!.count - 1 {
                         attributedRandomString.appendAttributedString(NSAttributedString(string: "\n", attributes: bodyAttributes))
                     }
                 }
@@ -145,14 +144,14 @@ extension PageViewController:UITextViewDelegate {
                         case 0:
                             attributedRandomString.appendAttributedString(NSAttributedString(string: "The criminal committed ", attributes: bodyAttributes))
                         case 1:
-                            attributedRandomString.appendAttributedString(NSAttributedString(string: "with ", attributes: bodyAttributes))
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: " with ", attributes: bodyAttributes))
                         case 2:
-                            attributedRandomString.appendAttributedString(NSAttributedString(string: "in ", attributes: bodyAttributes))
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: " in ", attributes: bodyAttributes))
                             
                         default:
                             break
                         }
-                        attributedRandomString.appendAttributedString(NSAttributedString(string: (dataSource?.randomElementForPage(self, atIndex: index))! + "\n", attributes: linkAttributes + [NSLinkAttributeName: "\(index)"]))
+                        attributedRandomString.appendAttributedString(NSAttributedString(string: (dataSource?.randomElementForPage(self, atIndex: index))!, attributes: linkAttributes + [NSLinkAttributeName: "\(index)"]))
                     }
                 } else {
                     attributedRandomString = NSMutableAttributedString(string: randomString, attributes: linkAttributes + [NSLinkAttributeName: "0"])
