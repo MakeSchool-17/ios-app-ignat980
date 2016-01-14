@@ -7,6 +7,8 @@
 		<key>Scene</key>
 		<array>
 			<dict>
+				<key>Looping</key>
+				<false/>
 				<key>Randoms</key>
 				<dict>
 					<key>1</key>
@@ -18,20 +20,24 @@
 				</dict>
 				<key>Parts</key>
 				<array>
-					<string>Pick a criminal, they should leave temporarily</string>
-					<string>Pick a crime, an accomplice, and a place</string>
-					<string>Bring the criminal back in</string>
+					<string>Pick a criminal and have them leave temporarily so they cannot hear.</string>
+					<string>Pick a crime, an accomplice, and a place.</string>
+					<string>Bring the criminal back in the room.</string>
 					<string>Interrogate the criminal by giving clues about the crime.
 (Game ends when the criminal says the crime, accomplice, and place)</string>
 				</array>
 				<key>Description</key>
 				<string>Excellent improv game to train listening and context skills.
-3 players, one temporarily leaves the room (they are the criminal). Pick a crime, an accomplice, and a place.
-The idea is that criminal needs to guess the crime, the accomplice, and the place. The cops need to provide hints to the criminal, but they cannot explicitly tell the criminal what the crime is, who the accomplice is, and where the crime took place.</string>
+
+2 or more players, one temporarily leaves the room (they are the criminal) so they cannot hear. Pick a crime, an accomplice, and a place.
+The idea is that criminal needs to guess the crime, the accomplice, and the place. The cops need to provide hints to the criminal, but they cannot explicitly tell the criminal what the crime is, who the accomplice is, and where the crime took place.
+They need to give indirect details related to the crime details. If the accomplice is Abraham Lincoln, the cops could mention a tall honest man, pennies, the $5 bill, or civil liberites.</string>
 				<key>Title</key>
 				<string>Good Cop, Bad Cop</string>
 			</dict>
 			<dict>
+				<key>Looping</key>
+				<false/>
 				<key>Randoms</key>
 				<dict/>
 				<key>Parts</key>
@@ -40,7 +46,8 @@ The idea is that criminal needs to guess the crime, the accomplice, and the plac
 				</array>
 				<key>Description</key>
 				<string>Excellent exercise for improv players that suffer from chronic Waffling(Postponing by lack of ideas; aka you just keep on babbling in the hope you`ll have an idea).
-Improvise a scene, completely in gibberish, no translations provided. The scene should be perfectly clear to the audience - we should be perfectly able to translate every gibberish sentence, and the story should make sense.</string>
+Improvise a scene, completely in gibberish, no translations provided. The scene should be perfectly clear to the audience - we should be perfectly able to translate every gibberish sentence, and the story should make sense.
+This will only work if the stories are extremely simple, and if the Platform is made clear right from the start.</string>
 				<key>Title</key>
 				<string>Just Gibberish</string>
 			</dict>
@@ -48,25 +55,31 @@ Improvise a scene, completely in gibberish, no translations provided. The scene 
 		<key>Exercise</key>
 		<array>
 			<dict>
+				<key>LoopIndex</key>
+				<integer>1</integer>
+				<key>Looping</key>
+				<true/>
 				<key>Randoms</key>
 				<dict/>
 				<key>Parts</key>
 				<array>
-					<string>First Person says a line</string>
-					<string>Second person responds to the line</string>
-					<string>First person responds to the Second person&apos;s line</string>
+					<string>First person say a line</string>
+					<string>Second person respond to the line</string>
+					<string>Finally, the first person respond to the second person&apos;s line</string>
 					<string>Restart! First person says a line</string>
 				</array>
 				<key>Description</key>
 				<string>A great exercise to train scene start-ups. 2 players initiate a scene; the scene is broken off after 3 lines. The goal is to establish as much as possible as fast as possible. The point is to understand the who, what and where of a scene, the characters, the environment and the points of view or drivers of the characters.
 Once 3 lines of dialog have been said, restart and do a different scene.</string>
 				<key>Title</key>
-				<string>Three Lines</string>
+				<string>Three Line Scenes</string>
 			</dict>
 		</array>
 		<key>WarmUp</key>
 		<array>
 			<dict>
+				<key>Looping</key>
+				<false/>
 				<key>Randoms</key>
 				<dict>
 					<key>10</key>
@@ -106,6 +119,10 @@ The idea is not only to listen for the item right before your&apos;s in the seri
 				<string>Categories</string>
 			</dict>
 			<dict>
+				<key>LoopIndex</key>
+				<integer>2</integer>
+				<key>Looping</key>
+				<true/>
 				<key>Randoms</key>
 				<dict>
 					<key>1</key>
@@ -116,11 +133,12 @@ The idea is not only to listen for the item right before your&apos;s in the seri
 				<key>Parts</key>
 				<array>
 					<string>Stand in a circle</string>
-					<string>Pick a category</string>
-					<string>Next person says three things from the category</string>
+					<string>First person pick a category</string>
+					<string>Next person say three things from that category</string>
+					<string>Same person pick a new category</string>
 				</array>
 				<key>Description</key>
-				<string>This is a good warm up for expanding upon a scene, as it trains you to think about similiar objects you would find in a category.</string>
+				<string>This is a good warm up for thinking up related ideas in a category, something that is very useful when you run out of ideas when you perform a scene.</string>
 				<key>Title</key>
 				<string>Three Things</string>
 			</dict>

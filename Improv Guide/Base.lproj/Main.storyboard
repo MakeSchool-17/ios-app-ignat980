@@ -154,7 +154,7 @@
                                     <constraint firstAttribute="height" constant="450" id="gcP-Lc-3ZQ"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outlet property="delegate" destination="5Wt-2d-oIl" id="jlR-Tk-yYZ"/>
@@ -180,6 +180,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <state key="normal" title="&gt;"/>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpJ-mc-Zln">
+                                <rect key="frame" x="20" y="530" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Kqj-Wg-pj4"/>
+                                    <constraint firstAttribute="width" constant="50" id="aRO-ED-d8W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="&lt;"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -191,6 +200,8 @@
                             <constraint firstItem="jZZ-ta-H6L" firstAttribute="leading" secondItem="41i-gC-fXw" secondAttribute="leading" id="cqo-4D-3Oz"/>
                             <constraint firstItem="jZZ-ta-H6L" firstAttribute="centerY" secondItem="41i-gC-fXw" secondAttribute="centerY" id="g50-YB-JJY"/>
                             <constraint firstItem="COe-XG-Dcd" firstAttribute="trailing" secondItem="41i-gC-fXw" secondAttribute="trailingMargin" id="imI-XD-obL"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="FpJ-mc-Zln" secondAttribute="leading" id="nAQ-5w-ghO"/>
+                            <constraint firstItem="sCF-iO-zXB" firstAttribute="top" secondItem="FpJ-mc-Zln" secondAttribute="bottom" constant="20" id="pAj-Bq-zLK"/>
                             <constraint firstItem="EqW-FH-RrI" firstAttribute="leading" secondItem="41i-gC-fXw" secondAttribute="leadingMargin" constant="-20" id="tcF-By-HeO"/>
                             <constraint firstItem="COe-XG-Dcd" firstAttribute="top" secondItem="jZZ-ta-H6L" secondAttribute="bottom" constant="5" id="xIX-oA-hCM"/>
                             <constraint firstAttribute="trailing" secondItem="jZZ-ta-H6L" secondAttribute="trailing" id="zEi-rt-4PA"/>
@@ -206,6 +217,8 @@
                     <connections>
                         <outlet property="instructionHeight" destination="gcP-Lc-3ZQ" id="xKB-ZQ-LoP"/>
                         <outlet property="instructions" destination="jZZ-ta-H6L" id="Vfn-VN-cM9"/>
+                        <outlet property="leftButton" destination="FpJ-mc-Zln" id="rUZ-A6-tXv"/>
+                        <outlet property="rightButton" destination="COe-XG-Dcd" id="GiG-Yz-qgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qug-Tg-mhl" userLabel="First Responder" sceneMemberID="firstResponder"/>

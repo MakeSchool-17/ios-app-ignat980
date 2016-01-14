@@ -12,27 +12,33 @@ class PageViewController: UIViewController {
     
     @IBOutlet var instructions: UITextView!
     @IBOutlet var instructionHeight: NSLayoutConstraint!
+    @IBOutlet var leftButton: UIButton!
+    @IBOutlet var rightButton: UIButton!
+    
     @objc @IBOutlet weak var dataSource: PageControllerDataSource? {
         didSet {
             if dataSource != nil {
+                rightButton.hidden = !dataSource!.pageShouldPresentRightArrow(self)
+                leftButton.hidden = !dataSource!.pageShouldPresentLeftArrow(self)
                 instructions.attributedText = NSMutableAttributedString(string: (dataSource?.instructionForPage(self))!, attributes: bodyAttributes)
+                let linkAttributes = bodyAttributes + [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
                 if let random = dataSource?.previousRandomsForPage(self) {
                     var endString:String
                     if random.isEmpty {
-                        endString = "or generate here"
+                        endString = "Generate here."
                     } else {
                         endString = random.joinWithSeparator("\n")
                     }
                     let attributedInstructions = NSMutableAttributedString(attributedString: instructions.attributedText)
                     var appendedRandom = NSMutableAttributedString()
                     if random.isEmpty {
-                        appendedRandom = NSMutableAttributedString(string: endString, attributes: bodyAttributes + [NSLinkAttributeName: "0"])
+                        appendedRandom = NSMutableAttributedString(string: endString, attributes: linkAttributes + [NSLinkAttributeName: "0"])
                     } else {
                         if dataSource?.titleForPage(self) == "Good Cop, Bad Cop"{
                             for (index, word) in random.enumerate() {
                                 switch index {
                                 case 0:
-                                    appendedRandom.appendAttributedString(NSAttributedString(string: "The Criminal committed ", attributes: bodyAttributes))
+                                    appendedRandom.appendAttributedString(NSAttributedString(string: "The criminal committed ", attributes: bodyAttributes))
                                 case 1:
                                     appendedRandom.appendAttributedString(NSAttributedString(string: "\nwith ", attributes: bodyAttributes))
                                 case 2:
@@ -40,11 +46,11 @@ class PageViewController: UIViewController {
                                 default:
                                     break
                                 }
-                                appendedRandom.appendAttributedString(NSAttributedString(string: word, attributes: bodyAttributes + [NSLinkAttributeName: "\(index)", NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]))
+                                appendedRandom.appendAttributedString(NSAttributedString(string: word, attributes: linkAttributes + [NSLinkAttributeName: "\(index)"]))
                             }
                         } else {
                             for (index, word) in random.enumerate() {
-                                appendedRandom.appendAttributedString(NSAttributedString(string: word, attributes: bodyAttributes + [NSLinkAttributeName: "\(index)", NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]))
+                                appendedRandom.appendAttributedString(NSAttributedString(string: word, attributes: linkAttributes + [NSLinkAttributeName: "\(index)"]))
                             }
                         }
                     }
@@ -55,14 +61,14 @@ class PageViewController: UIViewController {
     }
     
     let paragraphStyle = NSMutableParagraphStyle()
-    var step:Int = 0
+    var step:Int = 0 
     
     private var bodyAttributes:[String:AnyObject] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         paragraphStyle.alignment = .Center
-        bodyAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(36), NSParagraphStyleAttributeName: paragraphStyle]
+        bodyAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(30), NSParagraphStyleAttributeName: paragraphStyle]
     }
     
     override func viewWillLayoutSubviews() {
@@ -113,7 +119,7 @@ extension PageViewController:UITextViewDelegate {
                     if title == "Good Cop, Bad Cop" {
                         switch index {
                         case 0:
-                            attributedRandomString.appendAttributedString(NSAttributedString(string: "The Criminal committed ", attributes: bodyAttributes))
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: "The criminal committed ", attributes: bodyAttributes))
                         case 1:
                             attributedRandomString.appendAttributedString(NSAttributedString(string: "\nwith ", attributes: bodyAttributes))
                         case 2:
@@ -137,7 +143,7 @@ extension PageViewController:UITextViewDelegate {
                     for index in 0...2 {
                         switch index {
                         case 0:
-                            attributedRandomString.appendAttributedString(NSAttributedString(string: "The Criminal committed ", attributes: bodyAttributes))
+                            attributedRandomString.appendAttributedString(NSAttributedString(string: "The criminal committed ", attributes: bodyAttributes))
                         case 1:
                             attributedRandomString.appendAttributedString(NSAttributedString(string: "with ", attributes: bodyAttributes))
                         case 2:
@@ -174,4 +180,6 @@ extension PageViewController:UITextViewDelegate {
     func randomElementForPage(pageController: PageViewController, atIndex index:Int) -> String
     func previousRandomsForPage(pageController: PageViewController) -> [String]?
     func randomTypesForPage(pageController: PageViewController) -> [String]
+    func pageShouldPresentRightArrow(pageController: PageViewController) -> Bool
+    func pageShouldPresentLeftArrow(pageController: PageViewController) -> Bool
 }

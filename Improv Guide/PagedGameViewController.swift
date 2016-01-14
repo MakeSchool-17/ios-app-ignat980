@@ -108,6 +108,22 @@ extension PagedGameViewController: PageControllerDataSource {
     func randomTypesForPage(pageController: PageViewController) -> [String] {
         return currentPageRandomTypes
     }
+    
+    func pageShouldPresentRightArrow(pageController: PageViewController) -> Bool {
+        if pageController.step.successor() == gameData?.valueForKeyPath("Parts.@count") as! Int && gameData?["Looping"] as! Bool == false {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    func pageShouldPresentLeftArrow(pageController: PageViewController) -> Bool {
+        if pageController.step == 0 {
+            return false
+        } else {
+            return true
+        }
+    }
 }
 
 extension PagedGameViewController: UIPageViewControllerDataSource {
@@ -122,9 +138,8 @@ extension PagedGameViewController: UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         if (pageViewController.viewControllers![0] as! PageViewController).step.successor() >= gameData?.valueForKeyPath("Parts.@count") as? Int ?? 0 {
-            let title = gameData?.valueForKey("Title") as? String
-            if  title == "Three Lines" || title == "Three Things" {
-                return makeGamePage(withStep: 1)
+            if gameData?["Looping"] as! Bool {
+                return makeGamePage(withStep: gameData?["LoopIndex"] as! Int)
             }
             return nil
         } else {

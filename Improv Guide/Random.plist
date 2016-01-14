@@ -4,38 +4,40 @@
 <dict>
 	<key>Crime</key>
 	<array>
-		<string>a Pickpocketing</string>
-		<string>an Inside Job</string>
-		<string>Dangerous Driving</string>
-		<string>a Bomb Threat</string>
-		<string>Treason</string>
-		<string>a Data Breach</string>
-		<string>a Prison Escape</string>
-		<string>Arson</string>
-		<string>Tax Evasion</string>
-		<string>a Jaywalk</string>
-		<string>a Murder</string>
-		<string>a Robbery</string>
+		<string>a pickpocketing</string>
+		<string>an inside job</string>
+		<string>dangerous driving</string>
+		<string>a bomb threat</string>
+		<string>treason</string>
+		<string>a data breach</string>
+		<string>a prison escape</string>
+		<string>arson</string>
+		<string>tax evasion</string>
+		<string>a jaywalk</string>
+		<string>a murder</string>
+		<string>a robbery</string>
 	</array>
 	<key>Place</key>
 	<array>
+		<string>a jungle</string>
 		<string>Timbuktu</string>
 		<string>Berlin</string>
-		<string>a Theater</string>
+		<string>a theater</string>
 		<string>the White House</string>
-		<string>a Western Theme Park</string>
-		<string>a Treehouse</string>
+		<string>a western theme park</string>
+		<string>a treehouse</string>
 		<string>Paris</string>
-		<string>an Ice Cream Shop</string>
+		<string>an ice cream shop</string>
 	</array>
 	<key>Person</key>
 	<array>
-		<string>A Google Employee</string>
-		<string>A Carpenter</string>
+		<string>Bill Gates</string>
+		<string>a Google employee</string>
+		<string>a carpenter</string>
 		<string>Superman</string>
-		<string>A Teacher</string>
-		<string>A Window Cleaner</string>
-		<string>Your Dad</string>
+		<string>a teacher</string>
+		<string>a window cleaner</string>
+		<string>your dad</string>
 		<string>Barack Obama</string>
 		<string>Abraham Lincoln</string>
 	</array>
@@ -47,7 +49,7 @@
 		<string>Countries</string>
 		<string>Tools</string>
 		<string>Instruments</string>
-		<string>Vegetabels</string>
+		<string>Vegetables</string>
 		<string>Clothes</string>
 		<string>Tv Shows</string>
 		<string>Fruits</string>
