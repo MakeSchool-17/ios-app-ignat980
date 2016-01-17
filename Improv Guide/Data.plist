@@ -4,63 +4,36 @@
 <dict>
 	<key>Games</key>
 	<dict>
-		<key>Scene</key>
+		<key>WarmUp</key>
 		<array>
 			<dict>
+				<key>LoopIndex</key>
+				<integer>2</integer>
 				<key>Looping</key>
-				<false/>
+				<true/>
 				<key>Randoms</key>
 				<dict>
+					<key>3</key>
+					<array>
+						<string>Category</string>
+					</array>
 					<key>1</key>
 					<array>
-						<string>Crime</string>
-						<string>Person</string>
-						<string>Place</string>
+						<string>Category</string>
 					</array>
 				</dict>
 				<key>Parts</key>
 				<array>
-					<string>Pick a criminal and have them leave temporarily so they cannot hear.</string>
-					<string>Pick a crime, an accomplice, and a place.</string>
-					<string>Bring the criminal back in the room.</string>
-					<string>Tell the criminal they must correctly guess the crime, location and place.</string>
-					<string>Cops interrogate the criminal by giving indirect details related to the crime.</string>
+					<string>Stand in a circle.</string>
+					<string>First person pick a category.</string>
+					<string>Next person say three things from that category.</string>
+					<string>Same person pick a new category.</string>
 				</array>
 				<key>Description</key>
-				<string>Excellent improv game to train listening and context skills.
-
-2 or more players, one temporarily leaves the room (they are the criminal) so they cannot hear. Pick a crime, an accomplice, and a place.
-The idea is that criminal needs to guess the crime, the accomplice, and the place. The cops need to provide hints to the criminal, but they cannot explicitly tell the criminal what the crime is, who the accomplice is, and where the crime took place.
-They need to give indirect details related to the crime details. If the accomplice is Abraham Lincoln, the cops could mention a tall honest man, pennies, the $5 bill, or civil liberites.</string>
+				<string>This is a good warm up for thinking up related ideas in a category, something that is very useful when you run out of ideas when you perform a scene.</string>
 				<key>Title</key>
-				<string>Good Cop, Bad Cop</string>
+				<string>Three Things (2+👥)</string>
 			</dict>
-		</array>
-		<key>Exercise</key>
-		<array>
-			<dict>
-				<key>LoopIndex</key>
-				<integer>1</integer>
-				<key>Looping</key>
-				<true/>
-				<key>Randoms</key>
-				<dict/>
-				<key>Parts</key>
-				<array>
-					<string>First person say a line</string>
-					<string>Second person respond to the line</string>
-					<string>Finally, the first person respond to the second person&apos;s line</string>
-					<string>Restart! First person says a line</string>
-				</array>
-				<key>Description</key>
-				<string>A great exercise to train scene start-ups. 2 players initiate a scene; the scene is broken off after 3 lines. The goal is to establish as much as possible as fast as possible. The point is to understand the who, what and where of a scene, the characters, the environment and the points of view or drivers of the characters.
-Once 3 lines of dialog have been said, restart and do a different scene.</string>
-				<key>Title</key>
-				<string>Three Line Scenes</string>
-			</dict>
-		</array>
-		<key>WarmUp</key>
-		<array>
 			<dict>
 				<key>Looping</key>
 				<false/>
@@ -81,54 +54,132 @@ Once 3 lines of dialog have been said, restart and do a different scene.</string
 				</dict>
 				<key>Parts</key>
 				<array>
-					<string>Stand in a circle</string>
-					<string>Pick a category</string>
+					<string>Stand in a circle.</string>
+					<string>Pick a category.</string>
 					<string>State an example of the category, then point to someone else. Keep pointing!</string>
-					<string>The pointed to person says another example and points to someone else</string>
-					<string>Continue the pattern (say an example and point to a new person) until eveyone is pointing at someone</string>
-					<string>Repeat the &quot;chain&quot;, say your word and point to the person you pointed to last time and so on</string>
-					<string>Drop the arms when the &quot;chain&quot; of words is memorized</string>
-					<string>Do the same with a new category, with a different pointing pattern</string>
-					<string>Repeat the new pattern until it is memorized</string>
-					<string>Now, without pointing, run both categories at the same time</string>
+					<string>The pointed to person says another example and points to someone else.</string>
+					<string>Continue the pattern (say an example and point to a new person) until eveyone is pointing at someone.</string>
+					<string>Repeat the &quot;chain&quot;, say your word and point to the person you pointed to last time and so on.</string>
+					<string>Drop the arms when the &quot;chain&quot; of words is memorized.</string>
+					<string>Do the same with a new category, with a different pointing pattern.</string>
+					<string>Repeat the new pattern until it is memorized.</string>
+					<string>Now, without pointing, run both categories at the same time.</string>
 					<string>Add more categories!</string>
 				</array>
 				<key>Description</key>
 				<string>This is a great game to train memorization and concentration.
                     
-You will need to create &quot;chains&quot; of objects from different categories. Some examples of categories are make of cars, types of hardware, kinds of food, kinds of plants, types of clothes, etc. Make sure to have eye contact when linking your item to the next person.
-
-The idea is not only to listen for the item right before your&apos;s in the series (so you know when it&apos;s your turn), but also to make sure that when you pass an item to someone else, that someone else actually hears you. If not, then repeat your item, to ensure the series does not get broken.</string>
+You will need to create &quot;chains&quot; of objects from different categories.
+The idea is not only to listen for the item right before your&apos;s in the series (so you know when it&apos;s your turn), but also to make sure that when you pass an item to someone else, that someone else actually hears you.  Make sure to have eye contact when linking your item to the next person.
+If not, then repeat your item, to ensure the series does not get broken.</string>
 				<key>Title</key>
-				<string>Categories</string>
+				<string>Categories (4+👥)</string>
 			</dict>
+		</array>
+		<key>Exercise</key>
+        <array>
+            <dict>
+                <key>LoopIndex</key>
+                <integer>1</integer>
+                <key>Looping</key>
+                <true/>
+                <key>Randoms</key>
+                <dict/>
+                <key>Parts</key>
+                <array>
+                    <string>First person, say a line.</string>
+                    <string>Second person, respond to the line.</string>
+                    <string>Finally, first person respond to second person&apos;s line.</string>
+                    <string>Restart! First person say a line.</string>
+                </array>
+                <key>Description</key>
+                <string>A great exercise to train scene start-ups. 2 players initiate a scene; the scene is broken off after 3 lines. The goal is to establish as much as possible as fast as possible. The point is to understand the who, what and where of a scene, the characters, the environment and the points of view or drivers of the characters.
+                    Once 3 lines of dialogue have been said, restart and do a different scene.</string>
+                <key>Title</key>
+                <string>Three Line Scenes (2👥)</string>
+            </dict>
 			<dict>
 				<key>LoopIndex</key>
-				<integer>2</integer>
+				<integer>9</integer>
 				<key>Looping</key>
 				<true/>
 				<key>Randoms</key>
+				<array/>
+				<key>Parts</key>
+				<array>
+					<string>Say a line</string>
+					<string>Give device to someone else</string>
+					<string>Say &quot;You said&quot; and repeat the previous line of dialogue</string>
+					<string>Say &quot;I feel&quot; and what you are currently thinking about the previous line</string>
+					<string>Say &quot;That means&quot; and your response to the previous line</string>
+					<string>Pass the device</string>
+					<string>Say &quot;You said&quot; and the previous line</string>
+					<string>Say &quot;I feel&quot; and your thoughts</string>
+					<string>Say &quot;That means&quot; and your action</string>
+					<string>Pass the device, &quot;You said...&quot;</string>
+					<string>&quot;I feel...&quot;</string>
+					<string>&quot;That means...&quot;</string>
+				</array>
+				<key>Description</key>
+				<string>Excellent game to train listening skills.
+
+This game is basically a scene one sentence at a time, and the players really analyze the detail of each line. Whenever somebody wants to say a line of dialogue, they have to say &quot;You said&quot; and repeat the previous line of dialogue, then say &quot;I feel&quot; and explain what they are currently thinking about regarding the previous line of dialogue, and finally say &quot;That means&quot; and their line of dialogue. </string>
+				<key>Title</key>
+				<string>You Said, I Feel, That Means (2+👥)</string>
+			</dict>
+		</array>
+		<key>Scene</key>
+		<array>
+            <dict>
+                <key>LoopIndex</key>
+                <integer>0</integer>
+                <key>Looping</key>
+                <false/>
+                <key>Randoms</key>
+                <dict/>
+                <key>Parts</key>
+                <array>
+                    <string>Start a scene with a word</string>
+                    <string>Next person say the next word that continues the sentence</string>
+                    <string>First person continue the sentence with a word</string>
+                    <string>Keep going back and forth until you construct a whole sentence</string>
+                    <string>Keep making lines in this way, use different pitches of voice for different characters.</string>
+                </array>
+                <key>Description</key>
+                <string>This is good excercise to train justification.
+
+2 players. They have to construct sentences, one word at a time. While they say their word, they have to act out a paddle swing to the other person as if they are "passing" the same sentence back and forth. The goal is to construct sensible lines that tell a story with your characters.</string>
+                <key>Title</key>
+                <string>Ping Pong (2👥)</string>
+            </dict>
+			<dict>
+				<key>Looping</key>
+				<false/>
+				<key>Randoms</key>
 				<dict>
-					<key>3</key>
-					<array>
-						<string>Category</string>
-					</array>
 					<key>1</key>
 					<array>
-						<string>Category</string>
+						<string>Crime</string>
+						<string>Person</string>
+						<string>Place</string>
 					</array>
 				</dict>
 				<key>Parts</key>
 				<array>
-					<string>Stand in a circle</string>
-					<string>First person pick a category</string>
-					<string>Next person say three things from that category</string>
-					<string>Same person pick a new category</string>
+					<string>Pick a criminal and have them leave temporarily so that they cannot hear.</string>
+					<string>Pick a crime, an accomplice, and a place.</string>
+					<string>Bring the criminal back in the room.</string>
+					<string>Tell the criminal they must correctly guess the crime, location and place.</string>
+					<string>Cops interrogate the criminal by giving indirect details related to the crime.</string>
 				</array>
 				<key>Description</key>
-				<string>This is a good warm up for thinking up related ideas in a category, something that is very useful when you run out of ideas when you perform a scene.</string>
+				<string>Excellent improv game to train listening and context skills.
+
+2 or more players, one temporarily leaves the room (the criminal) so they cannot hear. Pick a crime, an accomplice, and a place.
+The idea is that criminal needs to guess the crime, the accomplice, and the place. The cops need to provide hints to the criminal, but they cannot explicitly tell the criminal what the crime is, who the accomplice is, and where the crime took place.
+They need to give indirect details related to the crime details. If the accomplice is Abraham Lincoln, the cops could mention a tall honest man, pennies, the $5 bill, or civil liberites.</string>
 				<key>Title</key>
-				<string>Three Things</string>
+				<string>Good Cop, Bad Cop (2+👥)</string>
 			</dict>
 		</array>
 	</dict>

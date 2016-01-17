@@ -148,7 +148,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jZZ-ta-H6L">
-                                <rect key="frame" x="0.0" y="75" width="600" height="450"/>
+                                <rect key="frame" x="16" y="75" width="568" height="450"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="gcP-Lc-3ZQ"/>
@@ -197,14 +197,14 @@
                             <constraint firstItem="jZZ-ta-H6L" firstAttribute="top" secondItem="EqW-FH-RrI" secondAttribute="bottom" constant="3" id="Cvo-di-2wb"/>
                             <constraint firstAttribute="bottom" secondItem="COe-XG-Dcd" secondAttribute="bottom" constant="20" symbolic="YES" id="KYa-ur-dlt"/>
                             <constraint firstItem="jZZ-ta-H6L" firstAttribute="centerX" secondItem="41i-gC-fXw" secondAttribute="centerX" id="Vey-wq-fqd"/>
-                            <constraint firstItem="jZZ-ta-H6L" firstAttribute="leading" secondItem="41i-gC-fXw" secondAttribute="leading" id="cqo-4D-3Oz"/>
+                            <constraint firstItem="jZZ-ta-H6L" firstAttribute="leading" secondItem="41i-gC-fXw" secondAttribute="leadingMargin" constant="-4" id="cqo-4D-3Oz"/>
                             <constraint firstItem="jZZ-ta-H6L" firstAttribute="centerY" secondItem="41i-gC-fXw" secondAttribute="centerY" id="g50-YB-JJY"/>
                             <constraint firstItem="COe-XG-Dcd" firstAttribute="trailing" secondItem="41i-gC-fXw" secondAttribute="trailingMargin" id="imI-XD-obL"/>
                             <constraint firstAttribute="leadingMargin" secondItem="FpJ-mc-Zln" secondAttribute="leading" id="nAQ-5w-ghO"/>
                             <constraint firstItem="sCF-iO-zXB" firstAttribute="top" secondItem="FpJ-mc-Zln" secondAttribute="bottom" constant="20" id="pAj-Bq-zLK"/>
                             <constraint firstItem="EqW-FH-RrI" firstAttribute="leading" secondItem="41i-gC-fXw" secondAttribute="leadingMargin" constant="-20" id="tcF-By-HeO"/>
                             <constraint firstItem="COe-XG-Dcd" firstAttribute="top" secondItem="jZZ-ta-H6L" secondAttribute="bottom" constant="5" id="xIX-oA-hCM"/>
-                            <constraint firstAttribute="trailing" secondItem="jZZ-ta-H6L" secondAttribute="trailing" id="zEi-rt-4PA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jZZ-ta-H6L" secondAttribute="trailing" constant="-4" id="zEi-rt-4PA"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

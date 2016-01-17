@@ -26,12 +26,12 @@ class PageViewController: UIViewController {
                     var endString:String
                     var appendedRandom = NSMutableAttributedString()
                     if random.isEmpty {
-                        endString = "Generate here."
+                        endString = "Generate here"
                         appendedRandom = NSMutableAttributedString(string: endString, attributes: linkAttributes + [NSLinkAttributeName: "0"])
                     }
                     let attributedInstructions = NSMutableAttributedString(attributedString: instructions.attributedText)
                     if !random.isEmpty {
-                        if dataSource?.titleForPage(self) == "Good Cop, Bad Cop"{
+                        if dataSource!.titleForPage(self).containsString("Good Cop, Bad Cop") {
                             for (index, word) in random.enumerate() {
                                 switch index {
                                 case 0:
@@ -108,14 +108,16 @@ extension PageViewController:UITextViewDelegate {
             let instructionText = textView.attributedText[range]
             let linkAttributes = bodyAttributes + [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue]
             var attributedRandomString = NSMutableAttributedString()
-            if generatedWords?.count > 1 {
+            let isCopGame = dataSource!.titleForPage(self).containsString("Good Cop, Bad Cop")
+            if generatedWords != nil && !generatedWords!.isEmpty {
                 while randomString == generatedWords![Int(URL.absoluteString)!] {
                     randomString = dataSource!.randomElementForPage(self, atIndex: Int(URL.absoluteString)!) ?? ""
                 }
+            }
+            if generatedWords?.count > 1 {
                 for (index, word) in generatedWords!.enumerate() {
                     let attributedWord:NSAttributedString
-                    let title = dataSource?.titleForPage(self)
-                    if title == "Good Cop, Bad Cop" {
+                    if isCopGame {
                         switch index {
                         case 0:
                             attributedRandomString.appendAttributedString(NSAttributedString(string: "The criminal committed ", attributes: bodyAttributes))
@@ -133,12 +135,12 @@ extension PageViewController:UITextViewDelegate {
                         attributedWord = NSAttributedString(string: word, attributes: linkAttributes + [NSLinkAttributeName:"\(index)"])
                     }
                     attributedRandomString.appendAttributedString(attributedWord)
-                    if title != "Good Cop, Bad Cop" && index < generatedWords!.count - 1 {
+                    if !isCopGame && index < generatedWords!.count - 1 {
                         attributedRandomString.appendAttributedString(NSAttributedString(string: "\n", attributes: bodyAttributes))
                     }
                 }
             } else {
-                if dataSource?.titleForPage(self) == "Good Cop, Bad Cop" {
+                if isCopGame {
                     for index in 0...2 {
                         switch index {
                         case 0:

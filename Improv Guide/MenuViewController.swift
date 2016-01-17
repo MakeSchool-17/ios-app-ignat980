@@ -61,11 +61,11 @@ extension MenuViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Warm-up"
+            return "Warm Ups"
         case 1:
-            return "Exercise"
+            return "Exercises"
         case 2:
-            return "Scene"
+            return "Scenes"
         default:
             return "\(section)"
         }

@@ -31,6 +31,11 @@
 	</array>
 	<key>Person</key>
 	<array>
+		<string>a chemist</string>
+		<string>a priest</string>
+		<string>a cop</string>
+		<string>Donald Trump</string>
+		<string>Elvis Presley</string>
 		<string>Bill Gates</string>
 		<string>a Google employee</string>
 		<string>a carpenter</string>
@@ -51,7 +56,7 @@
 		<string>Instruments</string>
 		<string>Vegetables</string>
 		<string>Clothes</string>
-		<string>Tv Shows</string>
+		<string>TV Shows</string>
 		<string>Fruits</string>
 	</array>
 </dict>
